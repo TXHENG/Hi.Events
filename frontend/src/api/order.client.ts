@@ -4,6 +4,7 @@ import {
     GenericPaginatedResponse,
     IdParam,
     Order,
+    OrderPaymentProof,
     QueryFilters,
     StripePaymentIntent
 } from "../types.ts";
@@ -101,6 +102,26 @@ export const orderClient = {
         return response.data;
     },
 
+    getPaymentProofs: async (eventId: IdParam, orderId: IdParam) => {
+        const response = await api.get<GenericDataResponse<OrderPaymentProof[]>>(`events/${eventId}/orders/${orderId}/payment-proofs`);
+        return response.data;
+    },
+
+    approvePaymentProof: async (eventId: IdParam, orderId: IdParam, paymentProofId: IdParam) => {
+        const response = await api.post<GenericDataResponse<OrderPaymentProof>>(`events/${eventId}/orders/${orderId}/payment-proofs/${paymentProofId}/approve`);
+        return response.data;
+    },
+
+    rejectPaymentProof: async (eventId: IdParam, orderId: IdParam, paymentProofId: IdParam, reason: string) => {
+        const response = await api.post<GenericDataResponse<OrderPaymentProof>>(`events/${eventId}/orders/${orderId}/payment-proofs/${paymentProofId}/reject`, {reason});
+        return response.data;
+    },
+
+    downloadPaymentProof: async (eventId: IdParam, orderId: IdParam, paymentProofId: IdParam): Promise<Blob> => {
+        const response = await api.get(`events/${eventId}/orders/${orderId}/payment-proofs/${paymentProofId}/download`, {responseType: 'blob'});
+        return new Blob([response.data]);
+    },
+
     downloadInvoice: async (eventId: IdParam, orderId: IdParam): Promise<Blob> => {
         const response = await api.get(`events/${eventId}/orders/${orderId}/invoice`, {
             responseType: 'blob',
@@ -163,6 +184,23 @@ export const orderClientPublic = {
 
     transitionToOfflinePayment: async (eventId: IdParam, orderShortId: IdParam) => {
         const response = await publicApi.post<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}/await-offline-payment`);
+        return response.data;
+    },
+
+    getPaymentProofs: async (eventId: IdParam, orderShortId: IdParam) => {
+        const response = await publicApi.get<GenericDataResponse<OrderPaymentProof[]>>(`events/${eventId}/order/${orderShortId}/payment-proofs`);
+        return response.data;
+    },
+
+    submitPaymentProof: async (eventId: IdParam, orderShortId: IdParam, proof: File, paymentReference?: string) => {
+        const formData = new FormData();
+        formData.append('proof', proof);
+        if (paymentReference) formData.append('payment_reference', paymentReference);
+        const response = await publicApi.post<GenericDataResponse<OrderPaymentProof>>(
+            `events/${eventId}/order/${orderShortId}/payment-proofs`,
+            formData,
+            {headers: {'Content-Type': 'multipart/form-data'}},
+        );
         return response.data;
     },
 

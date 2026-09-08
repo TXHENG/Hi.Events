@@ -54,6 +54,7 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
     final public const INVOICE_TAX_DETAILS = 'invoice_tax_details';
     final public const PAYMENT_PROVIDERS = 'payment_providers';
     final public const OFFLINE_PAYMENT_INSTRUCTIONS = 'offline_payment_instructions';
+    final public const ALLOW_OFFLINE_PAYMENT_PROOF = 'allow_offline_payment_proof';
     final public const ALLOW_ORDERS_AWAITING_OFFLINE_PAYMENT_TO_CHECK_IN = 'allow_orders_awaiting_offline_payment_to_check_in';
     final public const INVOICE_PAYMENT_TERMS_DAYS = 'invoice_payment_terms_days';
     final public const INVOICE_NOTES = 'invoice_notes';
@@ -115,6 +116,7 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
     protected ?string $invoice_tax_details = null;
     protected array|string|null $payment_providers = null;
     protected ?string $offline_payment_instructions = null;
+    protected bool $allow_offline_payment_proof = false;
     protected bool $allow_orders_awaiting_offline_payment_to_check_in = false;
     protected ?int $invoice_payment_terms_days = null;
     protected ?string $invoice_notes = null;
@@ -179,6 +181,7 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
                     'invoice_tax_details' => $this->invoice_tax_details ?? null,
                     'payment_providers' => $this->payment_providers ?? null,
                     'offline_payment_instructions' => $this->offline_payment_instructions ?? null,
+                    'allow_offline_payment_proof' => $this->allow_offline_payment_proof ?? null,
                     'allow_orders_awaiting_offline_payment_to_check_in' => $this->allow_orders_awaiting_offline_payment_to_check_in ?? null,
                     'invoice_payment_terms_days' => $this->invoice_payment_terms_days ?? null,
                     'invoice_notes' => $this->invoice_notes ?? null,
@@ -680,6 +683,17 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
     public function getOfflinePaymentInstructions(): ?string
     {
         return $this->offline_payment_instructions;
+    }
+
+    public function setAllowOfflinePaymentProof(bool $allow_offline_payment_proof): self
+    {
+        $this->allow_offline_payment_proof = $allow_offline_payment_proof;
+        return $this;
+    }
+
+    public function getAllowOfflinePaymentProof(): bool
+    {
+        return $this->allow_offline_payment_proof;
     }
 
     public function setAllowOrdersAwaitingOfflinePaymentToCheckIn(

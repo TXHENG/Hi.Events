@@ -73,4 +73,24 @@ class UpdateEventSettingsRequestTest extends TestCase
 
         $this->assertFalse($validator->errors()->has('allow_copy_details_to_all_attendees'));
     }
+
+    public function test_allow_offline_payment_proof_accepts_boolean(): void
+    {
+        $validator = Validator::make(
+            ['allow_offline_payment_proof' => true],
+            (new UpdateEventSettingsRequest)->rules()
+        );
+
+        $this->assertFalse($validator->errors()->has('allow_offline_payment_proof'));
+    }
+
+    public function test_allow_offline_payment_proof_rejects_non_boolean(): void
+    {
+        $validator = Validator::make(
+            ['allow_offline_payment_proof' => 'not-a-boolean'],
+            (new UpdateEventSettingsRequest)->rules()
+        );
+
+        $this->assertTrue($validator->errors()->has('allow_offline_payment_proof'));
+    }
 }

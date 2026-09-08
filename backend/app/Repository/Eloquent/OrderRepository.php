@@ -61,6 +61,16 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
                     $query->where('order_items.event_occurrence_id', $occurrenceFilter->value);
                 });
             }
+
+            $paymentProofFilter = $params->filter_fields->firstWhere('field', 'payment_proof_status');
+            if ($paymentProofFilter) {
+                $statuses = is_array($paymentProofFilter->value)
+                    ? $paymentProofFilter->value
+                    : explode(',', $paymentProofFilter->value);
+                $this->model = $this->model->whereHas('order_payment_proofs', function (Builder $query) use ($statuses) {
+                    $query->whereIn('status', $statuses);
+                });
+            }
         }
 
         $this->model = $this->model->orderBy(

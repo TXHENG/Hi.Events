@@ -66,6 +66,7 @@ class UpdateEventSettingsHandler
                     // Payment settings
                     'payment_providers' => $settings->payment_providers,
                     'offline_payment_instructions' => $this->purifier->purify($settings->offline_payment_instructions),
+                    'allow_offline_payment_proof' => $settings->allow_offline_payment_proof,
                     'allow_orders_awaiting_offline_payment_to_check_in' => $settings->allow_orders_awaiting_offline_payment_to_check_in,
 
                     // Invoice settings

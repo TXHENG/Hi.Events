@@ -8,6 +8,7 @@ use HiEvents\DomainObjects\EventOccurrenceDomainObject;
 use HiEvents\DomainObjects\InvoiceDomainObject;
 use HiEvents\DomainObjects\OrderDomainObject;
 use HiEvents\DomainObjects\OrderItemDomainObject;
+use HiEvents\DomainObjects\OrderPaymentProofDomainObject;
 use HiEvents\Http\Actions\BaseAction;
 use HiEvents\Repository\Eloquent\Value\Relationship;
 use HiEvents\Repository\Interfaces\OrderRepositoryInterface;
@@ -40,6 +41,7 @@ class GetOrdersAction extends BaseAction
             ))
             ->loadRelation(AttendeeDomainObject::class)
             ->loadRelation(InvoiceDomainObject::class)
+            ->loadRelation(OrderPaymentProofDomainObject::class)
             ->findByEventId($eventId, $this->getPaginationQueryParams($request));
 
         return $this->filterableResourceResponse(

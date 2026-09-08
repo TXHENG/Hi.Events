@@ -22,6 +22,10 @@ class OrderAnonymizer implements AccountAnonymizerInterface
         }
 
         return [
+            $this->executor->delete(
+                query: $this->databaseManager->table('order_payment_proofs')->whereIn('order_id', $context->orderIds),
+                entity: 'order_payment_proofs',
+            ),
             $this->executor->scrub(
                 query: $this->databaseManager->table('orders')->whereIn('id', $context->orderIds),
                 entity: 'orders',

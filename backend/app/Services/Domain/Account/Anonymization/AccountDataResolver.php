@@ -88,6 +88,12 @@ class AccountDataResolver
             ->map(fn ($image) => ['id' => $image->id, 'disk' => $image->disk, 'path' => $image->path])
             ->all();
 
+        $paymentProofFiles = $orderIds === [] ? [] : $connection->table('order_payment_proofs')
+            ->whereIn('order_id', $orderIds)
+            ->get(['disk', 'path'])
+            ->map(fn ($proof) => ['disk' => $proof->disk, 'path' => $proof->path])
+            ->all();
+
         return new AnonymizationContext(
             accountId: $accountId,
             eventIds: $eventIds,
@@ -98,6 +104,7 @@ class AccountDataResolver
             soleUserEmails: $soleUserEmails,
             stripeAccountIds: $stripeAccountIds,
             imageFiles: $imageFiles,
+            paymentProofFiles: $paymentProofFiles,
         );
     }
 }

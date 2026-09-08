@@ -245,6 +245,7 @@ class CreateEventService
 
             'payment_providers' => [PaymentProviders::STRIPE->value],
             'offline_payment_instructions' => null,
+            'allow_offline_payment_proof' => false,
 
             'enable_invoicing' => false,
             'invoice_label' => __('Invoice'),

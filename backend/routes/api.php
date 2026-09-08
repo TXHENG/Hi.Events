@@ -152,10 +152,13 @@ use HiEvents\Http\Actions\Messages\GetMessageRecipientsAction;
 use HiEvents\Http\Actions\Messages\GetMessagesAction;
 use HiEvents\Http\Actions\Messages\SendMessageAction;
 use HiEvents\Http\Actions\Orders\CancelOrderAction;
+use HiEvents\Http\Actions\Orders\ApproveOrderPaymentProofAction;
+use HiEvents\Http\Actions\Orders\DownloadOrderPaymentProofAction;
 use HiEvents\Http\Actions\Orders\DownloadOrderInvoiceAction;
 use HiEvents\Http\Actions\Orders\EditOrderAction;
 use HiEvents\Http\Actions\Orders\ExportOrdersAction;
 use HiEvents\Http\Actions\Orders\GetOrderAction;
+use HiEvents\Http\Actions\Orders\GetOrderPaymentProofsAction;
 use HiEvents\Http\Actions\Orders\GetOrdersAction;
 use HiEvents\Http\Actions\Orders\MarkOrderAsPaidAction;
 use HiEvents\Http\Actions\Orders\MessageOrderAction;
@@ -166,8 +169,12 @@ use HiEvents\Http\Actions\Orders\Public\AbandonOrderActionPublic;
 use HiEvents\Http\Actions\Orders\Public\CompleteOrderActionPublic;
 use HiEvents\Http\Actions\Orders\Public\CreateOrderActionPublic;
 use HiEvents\Http\Actions\Orders\Public\DownloadOrderInvoicePublicAction;
+use HiEvents\Http\Actions\Orders\Public\DownloadOrderPaymentProofPublicAction;
 use HiEvents\Http\Actions\Orders\Public\GetOrderActionPublic;
+use HiEvents\Http\Actions\Orders\Public\GetOrderPaymentProofsPublicAction;
+use HiEvents\Http\Actions\Orders\Public\SubmitOrderPaymentProofPublicAction;
 use HiEvents\Http\Actions\Orders\Public\TransitionOrderToOfflinePaymentPublicAction;
+use HiEvents\Http\Actions\Orders\RejectOrderPaymentProofAction;
 use HiEvents\Http\Actions\Orders\ResendOrderConfirmationAction;
 use HiEvents\Http\Actions\Organizers\CreateOrganizerAction;
 use HiEvents\Http\Actions\Organizers\DeleteOrganizerAction;
@@ -439,6 +446,10 @@ $router->middleware(['auth:api'])->group(
         $router->post('/events/{event_id}/orders/{order_id}/resend_confirmation', ResendOrderConfirmationAction::class);
         $router->post('/events/{event_id}/orders/{order_id}/cancel', CancelOrderAction::class);
         $router->post('/events/{event_id}/orders/{order_id}/mark-as-paid', MarkOrderAsPaidAction::class);
+        $router->get('/events/{event_id}/orders/{order_id}/payment-proofs', GetOrderPaymentProofsAction::class);
+        $router->get('/events/{event_id}/orders/{order_id}/payment-proofs/{payment_proof_id}/download', DownloadOrderPaymentProofAction::class);
+        $router->post('/events/{event_id}/orders/{order_id}/payment-proofs/{payment_proof_id}/approve', ApproveOrderPaymentProofAction::class);
+        $router->post('/events/{event_id}/orders/{order_id}/payment-proofs/{payment_proof_id}/reject', RejectOrderPaymentProofAction::class);
         $router->post('/events/{event_id}/orders/export', ExportOrdersAction::class);
         $router->get('/events/{event_id}/orders/{order_id}/invoice', DownloadOrderInvoiceAction::class);
 
@@ -624,6 +635,10 @@ $router->prefix('/public')->group(
         $router->get('/events/{event_id}/order/{order_short_id}', GetOrderActionPublic::class);
         $router->post('/events/{event_id}/order/{order_short_id}/abandon', AbandonOrderActionPublic::class);
         $router->post('/events/{event_id}/order/{order_short_id}/await-offline-payment', TransitionOrderToOfflinePaymentPublicAction::class);
+        $router->get('/events/{event_id}/order/{order_short_id}/payment-proofs', GetOrderPaymentProofsPublicAction::class);
+        $router->post('/events/{event_id}/order/{order_short_id}/payment-proofs', SubmitOrderPaymentProofPublicAction::class)
+            ->middleware('throttle:5,1');
+        $router->get('/events/{event_id}/order/{order_short_id}/payment-proofs/{payment_proof_id}/download', DownloadOrderPaymentProofPublicAction::class);
         $router->get('/events/{event_id}/order/{order_short_id}/invoice', DownloadOrderInvoicePublicAction::class);
 
         // Attendees

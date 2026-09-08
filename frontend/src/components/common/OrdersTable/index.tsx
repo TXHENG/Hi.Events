@@ -297,7 +297,10 @@ export const OrdersTable = ({orders, event, compact}: OrdersTableProps) => {
                             ) : order.payment_provider === 'OFFLINE' ? (
                                 <>
                                     <IconCash size={16}/>
-                                    <Text>{t`Offline`}</Text>
+                                    <div>
+                                        <Text>{t`Offline`}</Text>
+                                        {order.payment_proof_status === 'PENDING' && <Text size="xs" c="orange">{t`Proof awaiting review`}</Text>}
+                                    </div>
                                 </>
                             ) : (
                                 <>

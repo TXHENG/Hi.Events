@@ -32,6 +32,9 @@ class OrderDomainObject extends Generated\OrderDomainObjectAbstract implements I
 
     public ?Collection $invoices = null;
 
+    /** @var Collection<OrderPaymentProofDomainObject>|null */
+    public ?Collection $orderPaymentProofs = null;
+
     public ?EventDomainObject $event = null;
 
     public ?string $sessionIdentifier = null;
@@ -137,6 +140,19 @@ class OrderDomainObject extends Generated\OrderDomainObjectAbstract implements I
         $this->attendees = $attendees;
 
         return $this;
+    }
+
+    public function setOrderPaymentProofs(?Collection $orderPaymentProofs): OrderDomainObject
+    {
+        $this->orderPaymentProofs = $orderPaymentProofs;
+
+        return $this;
+    }
+
+    /** @return Collection<OrderPaymentProofDomainObject>|null */
+    public function getOrderPaymentProofs(): ?Collection
+    {
+        return $this->orderPaymentProofs;
     }
 
     public function getAttendees(): ?Collection

@@ -33,6 +33,10 @@ const refundStatuses = [
     {label: t`Partially Refunded`, value: 'PARTIALLY_REFUNDED'},
 ];
 
+const paymentProofStatuses = [
+    {label: t`Proof awaiting review`, value: 'PENDING'},
+];
+
 export const Orders: React.FC = () => {
     const {eventId} = useParams<{ eventId: string }>();
     const {data: event} = useGetEvent(eventId);
@@ -60,6 +64,12 @@ export const Orders: React.FC = () => {
             label: t`Refund Status`,
             type: 'multi-select',
             options: refundStatuses
+        },
+        {
+            field: 'payment_proof_status',
+            label: t`Payment Proof`,
+            type: 'multi-select',
+            options: paymentProofStatuses
         }
     ];
 
@@ -89,6 +99,9 @@ export const Orders: React.FC = () => {
         }
         if (values.refund_status?.length > 0) {
             filterFields.refund_status = {operator: QueryFilterOperator.In, value: values.refund_status};
+        }
+        if (values.payment_proof_status?.length > 0) {
+            filterFields.payment_proof_status = {operator: QueryFilterOperator.In, value: values.payment_proof_status};
         }
 
         setSearchParams({
@@ -145,6 +158,7 @@ export const Orders: React.FC = () => {
     const currentFilters = {
         status: getFilterValue(searchParams.filterFields?.status),
         refund_status: getFilterValue(searchParams.filterFields?.refund_status),
+        payment_proof_status: getFilterValue(searchParams.filterFields?.payment_proof_status),
     };
 
     return (

@@ -24,6 +24,7 @@ export const PaymentAndInvoicingSettings = () => {
             require_billing_address: true,
             payment_providers: [] as PaymentProvider[],
             offline_payment_instructions: "",
+            allow_offline_payment_proof: false,
             allow_orders_awaiting_offline_payment_to_check_in: false,
             enable_invoicing: false,
             invoice_label: "",
@@ -51,6 +52,7 @@ export const PaymentAndInvoicingSettings = () => {
             form.setValues({
                 payment_providers: eventSettingsQuery.data.payment_providers || [],
                 offline_payment_instructions: eventSettingsQuery.data.offline_payment_instructions || "",
+                allow_offline_payment_proof: eventSettingsQuery.data.allow_offline_payment_proof || false,
                 allow_orders_awaiting_offline_payment_to_check_in: eventSettingsQuery.data.allow_orders_awaiting_offline_payment_to_check_in || false,
                 enable_invoicing: eventSettingsQuery.data.enable_invoicing || false,
                 invoice_label: eventSettingsQuery.data.invoice_label || "",
@@ -162,6 +164,13 @@ export const PaymentAndInvoicingSettings = () => {
                                                 ]}
                                             />
                                         }
+                                    />
+                                    <Switch
+                                        label={t`Allow payment proof uploads`}
+                                        description={t`Let customers upload a receipt for an offline payment. You can approve or reject it from the order page.`}
+                                        checked={form.values.allow_offline_payment_proof}
+                                        {...form.getInputProps('allow_offline_payment_proof', {type: 'checkbox'})}
+                                        mb="md"
                                     />
                                     <Switch
                                         label={t`Allow attendees associated with unpaid orders to check in`}

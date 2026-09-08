@@ -31,6 +31,11 @@ class Order extends BaseModel
         return $this->hasMany(Attendee::class);
     }
 
+    public function order_payment_proofs(): HasMany
+    {
+        return $this->hasMany(OrderPaymentProof::class)->orderBy('created_at', 'desc');
+    }
+
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);

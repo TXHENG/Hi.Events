@@ -62,7 +62,7 @@ class AccountAnonymizationService
                 ->values();
         });
 
-        $this->deleteImageFiles($context->imageFiles);
+        $this->deleteFiles([...$context->imageFiles, ...$context->paymentProofFiles]);
 
         $manifest = $results
             ->map(fn (EntityAnonymizationResult $result) => $result->toArray())
@@ -76,15 +76,15 @@ class AccountAnonymizationService
         return $manifest;
     }
 
-    private function deleteImageFiles(array $imageFiles): void
+    private function deleteFiles(array $files): void
     {
-        foreach ($imageFiles as $imageFile) {
+        foreach ($files as $file) {
             try {
-                Storage::disk($imageFile['disk'])->delete($imageFile['path']);
+                Storage::disk($file['disk'])->delete($file['path']);
             } catch (Throwable $exception) {
-                $this->logger->warning('Failed to delete image file during account anonymization', [
-                    'disk' => $imageFile['disk'],
-                    'path' => $imageFile['path'],
+                $this->logger->warning('Failed to delete file during account anonymization', [
+                    'disk' => $file['disk'],
+                    'path' => $file['path'],
                     'error' => $exception->getMessage(),
                 ]);
             }

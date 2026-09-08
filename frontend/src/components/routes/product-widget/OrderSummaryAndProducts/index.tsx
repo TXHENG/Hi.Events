@@ -42,6 +42,7 @@ import {CheckoutContent} from "../../../layouts/Checkout/CheckoutContent";
 import {CheckoutStepTitle} from "../../../layouts/Checkout/CheckoutStepTitle";
 import {EditAttendeeModal} from "./EditAttendeeModal";
 import {EditOrderModal} from "./EditOrderModal";
+import {OfflinePaymentProofUpload} from "./OfflinePaymentProofUpload";
 
 import {useEditAttendeePublic} from "../../../../mutations/useEditAttendeePublic";
 import {useEditOrderPublic} from "../../../../mutations/useEditOrderPublic";
@@ -612,6 +613,9 @@ export const OrderSummaryAndProducts = () => {
                 />
 
                 {order?.status === 'AWAITING_OFFLINE_PAYMENT' && <OfflinePaymentInstructions event={event}/>}
+                {order?.status === 'AWAITING_OFFLINE_PAYMENT' && event?.settings?.allow_offline_payment_proof && (
+                    <OfflinePaymentProofUpload event={event} orderShortId={order.short_id}/>
+                )}
 
                 <h1 className={classes.heading}>{t`Order Details`}</h1>
 

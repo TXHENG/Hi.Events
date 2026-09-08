@@ -44,6 +44,13 @@ class OrderResource extends BaseResource
             'address' => $this->getAddress(),
             'notes' => $this->getNotes(),
             'payment_provider' => $this->getPaymentProvider(),
+            'payment_proof_status' => $this->when(
+                ! is_null($this->getOrderPaymentProofs()),
+                fn () => $this->getOrderPaymentProofs()
+                    ->first(fn ($proof) => $proof->getStatus() === 'PENDING')
+                    ?->getStatus()
+                    ?? $this->getOrderPaymentProofs()->first()?->getStatus(),
+            ),
             'promo_code' => $this->getPromoCode(),
             'event_id' => $this->getEventId(),
             'order_items' => $this->when(

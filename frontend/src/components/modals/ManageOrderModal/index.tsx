@@ -25,6 +25,7 @@ import {formatAddress} from "../../../utilites/addressUtilities.ts";
 import {capitalize} from "../../../utilites/stringHelper.ts";
 import classes from './ManageOrderModal.module.scss';
 import {EditOrderPayload} from "../../../api/order.client.ts";
+import {OrderPaymentProofReview} from "./OrderPaymentProofReview";
 import {
     DrawerStat,
     SideDrawer,
@@ -272,6 +273,12 @@ export const ManageOrderModal = ({onClose, orderId}: GenericModalProps & ManageO
                     <SideDrawerSection title={t`Order Summary`} surface>
                         <OrderSummary event={event} order={order}/>
                     </SideDrawerSection>
+
+                    {order.status === 'AWAITING_OFFLINE_PAYMENT' && (
+                        <SideDrawerSection title={t`Payment Proof`} surface>
+                            <OrderPaymentProofReview eventId={eventId!} orderId={order.id} onReviewed={refetchOrder}/>
+                        </SideDrawerSection>
+                    )}
 
                     {order.notes && (
                         <SideDrawerSection title={t`Notes`}>

@@ -256,6 +256,7 @@ export interface EventSettings {
     // Payment settings
     offline_payment_instructions: string;
     payment_providers: PaymentProvider[];
+    allow_offline_payment_proof: boolean;
     allow_orders_awaiting_offline_payment_to_check_in: boolean;
 
     // Invoice settings
@@ -914,6 +915,7 @@ export interface Order {
     status: 'RESERVED' | 'CANCELLED' | 'COMPLETED' | 'AWAITING_OFFLINE_PAYMENT' | 'ABANDONED';
     refund_status?: 'REFUND_PENDING' | 'REFUND_FAILED' | 'REFUNDED' | 'PARTIALLY_REFUNDED';
     payment_status?: 'NO_PAYMENT_REQUIRED' | 'AWAITING_PAYMENT' | 'PAYMENT_FAILED' | 'PAYMENT_RECEIVED' | 'AWAITING_OFFLINE_PAYMENT';
+    payment_proof_status?: 'PENDING' | 'APPROVED' | 'REJECTED';
     public_id: string;
     is_payment_required: boolean;
     is_manually_created: boolean;
@@ -933,6 +935,18 @@ export interface Invoice {
     id: IdParam,
     order_id: IdParam,
     status: 'PAID' | 'UNPAID' | 'VOID',
+}
+
+export interface OrderPaymentProof {
+    id: IdParam;
+    payment_reference?: string | null;
+    original_filename: string;
+    mime_type: string;
+    size: number;
+    status: 'PENDING' | 'APPROVED' | 'REJECTED';
+    rejection_reason?: string | null;
+    reviewed_at?: string | null;
+    created_at: string;
 }
 
 export interface OrderItem {

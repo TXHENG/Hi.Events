@@ -334,7 +334,7 @@ msgstr "20"
 msgid "A button label is required when a URL is set"
 msgstr "Gombfelirat megadása kötelező, ha URL van beállítva"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:211
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:212
 msgid "A cancellation notice has been sent to"
 msgstr "Lemondási értesítés elküldve ide:"
 
@@ -427,7 +427,7 @@ msgstr "URL megadása kötelező, ha gombfelirat van beállítva"
 msgid "A weekday pattern"
 msgstr "Heti minta"
 
-#: src/components/common/OrdersTable/index.tsx:347
+#: src/components/common/OrdersTable/index.tsx:350
 msgid "Abandoned"
 msgstr "Elhagyott"
 
@@ -452,11 +452,11 @@ msgstr "Kiemelő szín"
 msgid "Accept all"
 msgstr "Összes elfogadása"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:92
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:94
 msgid "Accept bank transfers, checks, or other offline payment methods"
 msgstr "Banki átutalások, csekkek vagy egyéb offline fizetési módok elfogadása"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:87
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:89
 msgid "Accept credit card payments with Stripe"
 msgstr "Hitelkártyás fizetések elfogadása a Stripe-pal"
 
@@ -556,7 +556,7 @@ msgstr "Beavatkozás szükséges: ÁFA információ szükséges"
 #: src/components/common/AdminEventsTable/index.tsx:114
 #: src/components/common/AffiliateTable/index.tsx:167
 #: src/components/common/EntityActions/index.tsx:28
-#: src/components/common/OrdersTable/index.tsx:356
+#: src/components/common/OrdersTable/index.tsx:359
 #: src/components/common/ProductsTable/SortableProduct/index.tsx:506
 #: src/components/common/WaitlistTable/index.tsx:56
 #: src/components/common/WaitlistTable/index.tsx:234
@@ -637,11 +637,11 @@ msgstr "Adjon hozzá bármilyen megjegyzést a résztvevőhöz. Ezek nem lesznek
 msgid "Add any notes about the attendee..."
 msgstr "Adjon hozzá bármilyen megjegyzést a résztvevőhöz..."
 
-#: src/components/modals/ManageOrderModal/index.tsx:250
+#: src/components/modals/ManageOrderModal/index.tsx:251
 msgid "Add any notes about the order. These will not be visible to the customer."
 msgstr "Adjon hozzá bármilyen megjegyzést a megrendeléshez. Ezek nem lesznek láthatók az ügyfél számára."
 
-#: src/components/modals/ManageOrderModal/index.tsx:254
+#: src/components/modals/ManageOrderModal/index.tsx:255
 msgid "Add any notes about the order..."
 msgstr "Adjon hozzá bármilyen megjegyzést a megrendeléshez..."
 
@@ -685,7 +685,7 @@ msgstr "Részletek hozzáadása"
 msgid "Add event details"
 msgstr "Eseményadatok hozzáadása"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:154
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:156
 msgid "Add instructions for offline payments (e.g., bank transfer details, where to send checks, payment deadlines)"
 msgstr "Adjon hozzá utasításokat az offline fizetésekhez (pl. banki átutalás részletei, hová küldje a csekkeket, fizetési határidők)"
 
@@ -786,14 +786,14 @@ msgstr "A fizetéskor kerül hozzáadásra"
 msgid "Additional Fees"
 msgstr "További díjak"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:403
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:404
 msgid "Additional Information"
 msgstr "További információk"
 
 #: src/components/common/LocationsTable/index.tsx:109
 #: src/components/common/OrderDetails/index.tsx:116
 #: src/components/forms/QuestionForm/index.tsx:130
-#: src/components/modals/ManageOrderModal/index.tsx:163
+#: src/components/modals/ManageOrderModal/index.tsx:164
 #: src/components/routes/organizer/Settings/index.tsx:43
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:103
 msgid "Address"
@@ -945,7 +945,7 @@ msgstr "Minden időpont"
 
 #: src/components/common/CheckInListTable/index.tsx:107
 #: src/components/routes/event/attendees.tsx:235
-#: src/components/routes/event/orders.tsx:182
+#: src/components/routes/event/orders.tsx:196
 #: src/components/routes/event/SoldOutWaitlist/index.tsx:104
 msgid "All Dates"
 msgstr "Minden időpont"
@@ -1000,7 +1000,7 @@ msgstr "Összes közelgő esemény"
 msgid "All users"
 msgstr "Minden felhasználó"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:167
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:176
 msgid "Allow attendees associated with unpaid orders to check in"
 msgstr "Engedélyezze a be nem fizetett megrendelésekhez társított résztvevők bejelentkezését"
 
@@ -1019,6 +1019,10 @@ msgstr "Lehetővé teszi az ügyfelek számára, hogy feliratkozzanak a váróli
 #: src/components/forms/ProductForm/index.tsx:467
 msgid "Allow customers to join a waitlist when this product is sold out. Customers join the waitlist for a specific date."
 msgstr "Lehetővé teszi az ügyfelek számára, hogy feliratkozzanak a várólistára, ha ez a termék elfogyott. Az ügyfelek egy adott dátumra iratkoznak fel a várólistára."
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
+msgid "Allow payment proof uploads"
+msgstr "Allow payment proof uploads"
 
 #: src/components/routes/event/Settings/Sections/SeoSettings/index.tsx:82
 #: src/components/routes/organizer/Settings/Sections/SeoSettings/index.tsx:82
@@ -1227,9 +1231,17 @@ msgstr "Alkalmazás minden jegyre"
 msgid "Approve - Not Spam"
 msgstr "Jóváhagyás - Nem spam"
 
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:94
+msgid "Approve and mark paid"
+msgstr "Approve and mark paid"
+
 #: src/components/routes/admin/Messages/index.tsx:232
 msgid "Approve Message"
 msgstr "Üzenet jóváhagyása"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:15
+msgid "Approved"
+msgstr "Approved"
 
 #: src/components/routes/event/OccurrencesTab/RecurrenceScheduleDrawer/index.tsx:68
 msgid "April"
@@ -1396,11 +1408,11 @@ msgstr "Biztosan közzé szeretné tenni ezt a szervezői profilt? A közzétét
 msgid "Are you sure you want to remove this entry from the waitlist?"
 msgstr "Biztosan el szeretné távolítani ezt a bejegyzést a várólistáról?"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:537
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:538
 msgid "Are you sure you want to resend the order confirmation to {0}?"
 msgstr "Biztosan újra szeretné küldeni a rendelés visszaigazolását a következő címre: {0}?"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:512
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:513
 msgid "Are you sure you want to resend the ticket to {0}?"
 msgstr "Biztosan újra szeretné küldeni a jegyet a következő címre: {0}?"
 
@@ -1554,7 +1566,7 @@ msgstr "Résztvevői jegy"
 msgid "Attendee Updated"
 msgstr "Résztvevő frissítve"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:460
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:461
 msgid "Attendee updated successfully"
 msgstr "A résztvevő sikeresen frissítve"
 
@@ -1574,7 +1586,7 @@ msgstr "résztvevő"
 #: src/components/common/StatBoxes/index.tsx:73
 #: src/components/layouts/Event/index.tsx:131
 #: src/components/modals/ManageOccurrenceModal/index.tsx:174
-#: src/components/modals/ManageOrderModal/index.tsx:283
+#: src/components/modals/ManageOrderModal/index.tsx:290
 #: src/components/routes/admin/Messages/index.tsx:90
 #: src/components/routes/admin/Messages/index.tsx:139
 #: src/components/routes/event/attendees.tsx:205
@@ -1685,7 +1697,7 @@ msgid "Awaiting offline payment"
 msgstr "Offline fizetésre vár"
 
 #: src/components/routes/event/orders.tsx:28
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:62
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:63
 msgid "Awaiting Offline Payment"
 msgstr "Offline fizetésre vár"
 
@@ -1702,12 +1714,16 @@ msgstr "Fizetésre vár"
 
 #: src/components/common/AttendeeStatusBadge/index.tsx:29
 #: src/components/common/AttendeeTable/index.tsx:266
-#: src/components/common/OrdersTable/index.tsx:335
+#: src/components/common/OrdersTable/index.tsx:338
 #: src/components/common/OrderStatusBadge/index.tsx:10
 #: src/components/routes/event/attendees.tsx:31
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:59
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:60
 msgid "Awaiting Payment"
 msgstr "Fizetésre vár"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:14
+msgid "Awaiting review"
+msgstr "Awaiting review"
 
 #: src/components/forms/OrganizerForm/index.tsx:29
 msgid "Awesome Events Ltd."
@@ -1797,11 +1813,11 @@ msgid "Because this account has completed orders, transaction records (amounts, 
 msgstr "Mivel ehhez a fiókhoz teljesített rendelések tartoznak, a tranzakciós adatok (összegek, dátumok és számlaadatok) anonimizált formában megőrzésre kerülnek jogi és adózási célokból. Minden személyes adat véglegesen törlésre kerül."
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:554
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:292
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:293
 msgid "Billing Address"
 msgstr "Számlázási cím"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:177
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:186
 msgid "Billing Settings"
 msgstr "Számlázási beállítások"
 
@@ -1809,7 +1825,7 @@ msgstr "Számlázási beállítások"
 msgid "Body is required"
 msgstr "A törzs kötelező"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:206
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:207
 msgid "Bookmark this page to manage your order anytime."
 msgstr "Könyvjelzőzze ezt az oldalt, hogy bármikor kezelhesse rendelését."
 
@@ -1937,7 +1953,7 @@ msgstr "A beléptetés nem lehetséges"
 #: src/components/common/WaitlistTable/index.tsx:135
 #: src/components/forms/ProductForm/ProductDrawer.tsx:134
 #: src/components/modals/ManageAttendeeModal/index.tsx:184
-#: src/components/modals/ManageOrderModal/index.tsx:209
+#: src/components/modals/ManageOrderModal/index.tsx:210
 #: src/components/modals/PublishEventModal/index.tsx:208
 #: src/components/routes/admin/DeletionRequests/index.tsx:178
 #: src/components/routes/event/messages.tsx:80
@@ -2007,7 +2023,7 @@ msgstr "A törlés törli az összes ehhez a rendeléshez tartozó résztvevőt,
 #: src/components/common/AttendeeStatusBadge/index.tsx:28
 #: src/components/common/AttendeeTable/index.tsx:272
 #: src/components/common/AttendeeTicket/index.tsx:92
-#: src/components/common/OrdersTable/index.tsx:341
+#: src/components/common/OrdersTable/index.tsx:344
 #: src/components/common/OrderStatusBadge/index.tsx:9
 #: src/components/common/WaitlistTable/index.tsx:28
 #: src/components/layouts/CheckIn/AttendeeDetailSheet.tsx:114
@@ -2023,7 +2039,7 @@ msgstr "A törlés törli az összes ehhez a rendeléshez tartozó résztvevőt,
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:425
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:126
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:171
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:100
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:101
 msgid "Cancelled"
 msgstr "Törölve"
 
@@ -2331,6 +2347,10 @@ msgstr "Válasszon konfigurációt"
 msgid "Choose a different action"
 msgstr "Válasszon másik műveletet"
 
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:67
+msgid "Choose a file"
+msgstr "Choose a file"
+
 #: src/components/common/ThemeFontControl/index.tsx:66
 msgid "Choose a typeface that matches your brand. Fonts are self-hosted via Bunny Fonts."
 msgstr "Válasszon olyan betűtípust, amely illik a márkájához. A betűtípusokat a Bunny Fonts szolgáltatja."
@@ -2552,7 +2572,7 @@ msgstr "Fejezze be a fizetést a jegyek biztosításához."
 msgid "Complete your profile to join the team."
 msgstr "Töltse ki a profilját a csapathoz való csatlakozáshoz."
 
-#: src/components/common/OrdersTable/index.tsx:323
+#: src/components/common/OrdersTable/index.tsx:326
 #: src/components/common/OrderStatusBadge/index.tsx:8
 #: src/components/modals/SendMessageModal/index.tsx:424
 #: src/components/routes/admin/DeletionRequests/index.tsx:86
@@ -2684,7 +2704,7 @@ msgstr "Erősítse meg e-mail címét az összes funkció eléréséhez."
 msgid "Confirmation email sent! Please check your inbox."
 msgstr "Megerősítő e-mail elküldve! Kérjük, ellenőrizze postaládáját."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:201
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:202
 msgid "Confirmation sent to"
 msgstr "Megerősítés elküldve a következő címre:"
 
@@ -2831,7 +2851,7 @@ msgstr "Cookie-beállítások"
 #: src/components/common/CopyButton/index.tsx:13
 #: src/components/modals/CheckInListSuccessModal/index.tsx:42
 #: src/components/modals/EventLiveCelebrationModal/index.tsx:75
-#: src/components/modals/ManageOrderModal/index.tsx:180
+#: src/components/modals/ManageOrderModal/index.tsx:181
 #: src/components/modals/ShareModal/index.tsx:255
 #: src/components/routes/organizer/Settings/Sections/PayoutsSettings/index.tsx:364
 msgid "Copied"
@@ -2857,8 +2877,8 @@ msgstr "Másolva!"
 #: src/components/common/CopyButton/index.tsx:13
 #: src/components/modals/CheckInListSuccessModal/index.tsx:42
 #: src/components/modals/EventLiveCelebrationModal/index.tsx:75
-#: src/components/modals/ManageOrderModal/index.tsx:180
-#: src/components/modals/ManageOrderModal/index.tsx:186
+#: src/components/modals/ManageOrderModal/index.tsx:181
+#: src/components/modals/ManageOrderModal/index.tsx:187
 #: src/components/modals/ShareModal/index.tsx:255
 msgid "Copy"
 msgstr "Másolás"
@@ -3695,7 +3715,7 @@ msgstr "Tervezési elemek"
 #: src/components/common/ProgressStepper/index.tsx:18
 #: src/components/common/ProgressStepper/index.tsx:23
 #: src/components/modals/ManageAttendeeModal/index.tsx:242
-#: src/components/modals/ManageOrderModal/index.tsx:268
+#: src/components/modals/ManageOrderModal/index.tsx:269
 #: src/components/routes/event/OccurrencesTab/OccurrenceEditModal/index.tsx:407
 #: src/components/routes/product-widget/CollectInformation/index.tsx:434
 #: src/components/routes/product-widget/SelectProducts/index.tsx:416
@@ -3789,7 +3809,7 @@ msgstr "Megjeleníti, hány hely maradt az egyes időpontokra a jegyvásárló f
 msgid "Display name"
 msgstr "Megjelenített név"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:200
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:209
 msgid "Document Label"
 msgstr "Dokumentum címke"
 
@@ -3816,6 +3836,10 @@ msgstr "Kész"
 #: src/components/common/CheckIn/CheckInDescriptionModal.tsx:20
 msgid "Door staff instructions"
 msgstr "Utasítások a beléptető személyzetnek"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:75
+msgid "Download"
+msgstr "Download"
 
 #: src/components/common/CalendarOptionsPopover/index.tsx:39
 msgid "Download .ics"
@@ -3960,7 +3984,7 @@ msgstr "Korai madár"
 #: src/components/common/TaxAndFeeList/index.tsx:73
 #: src/components/routes/admin/Announcements/index.tsx:211
 #: src/components/routes/event/OccurrencesTab/OccurrenceMenu.tsx:52
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:240
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:241
 #: src/hooks/useAttendeeActions.tsx:82
 #: src/hooks/useOrderActions.tsx:104
 msgid "Edit"
@@ -3989,7 +4013,7 @@ msgstr "Közlemény szerkesztése"
 msgid "Edit Answer"
 msgstr "Válasz szerkesztése"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:126
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:127
 msgid "Edit Attendee"
 msgstr "Résztvevő szerkesztése"
 
@@ -4126,7 +4150,7 @@ msgstr "Jogosult bejelentkezési listák"
 #: src/components/modals/InviteUserModal/index.tsx:61
 #: src/components/modals/JoinWaitlistModal/index.tsx:189
 #: src/components/modals/ManageAttendeeModal/index.tsx:152
-#: src/components/modals/ManageOrderModal/index.tsx:136
+#: src/components/modals/ManageOrderModal/index.tsx:137
 #: src/components/routes/admin/Accounts/AccountDetail/index.tsx:120
 #: src/components/routes/admin/Dashboard/index.tsx:401
 #: src/components/routes/auth/AcceptInvitation/index.tsx:112
@@ -4136,7 +4160,7 @@ msgstr "Jogosult bejelentkezési listák"
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:78
 #: src/components/routes/product-widget/OrderSummaryAndProducts/EditAttendeeModal/index.tsx:68
 #: src/components/routes/product-widget/OrderSummaryAndProducts/EditOrderModal/index.tsx:68
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:256
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:257
 #: src/components/routes/profile/ManageProfile/index.tsx:157
 msgid "Email"
 msgstr "E-mail"
@@ -4155,7 +4179,7 @@ msgstr "E-mail és sablonok"
 
 #: src/components/modals/CreateAttendeeModal/index.tsx:223
 #: src/components/modals/ManageAttendeeModal/index.tsx:208
-#: src/components/modals/ManageOrderModal/index.tsx:242
+#: src/components/modals/ManageOrderModal/index.tsx:243
 msgid "Email address"
 msgstr "E-mail cím"
 
@@ -4266,7 +4290,7 @@ msgstr "Résztvevői önkiszolgálás engedélyezése"
 msgid "Enable attendee self-service by default"
 msgstr "Résztvevői önkiszolgálás alapértelmezett engedélyezése"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:191
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:200
 msgid "Enable Invoicing"
 msgstr "Számlázás engedélyezése"
 
@@ -4528,7 +4552,7 @@ msgstr "Esemény egyedi sablon"
 
 #: src/components/routes/my-tickets/index.tsx:79
 #: src/components/routes/organizer/Reports/CheckInSummaryReport/index.tsx:29
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:322
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:323
 msgid "Event Date"
 msgstr "Esemény dátuma"
 
@@ -4552,7 +4576,7 @@ msgstr "Esemény leírása"
 
 #: src/components/routes/event/Settings/index.tsx:48
 #: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:71
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:630
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:634
 msgid "Event Details"
 msgstr "Esemény részletei"
 
@@ -4747,7 +4771,7 @@ msgstr "Lejárati dátum"
 
 #: src/components/routes/event/Affiliates/index.tsx:94
 #: src/components/routes/event/attendees.tsx:262
-#: src/components/routes/event/orders.tsx:206
+#: src/components/routes/event/orders.tsx:220
 msgid "Export"
 msgstr "Exportálás"
 
@@ -4783,7 +4807,7 @@ msgstr "Résztvevők exportálása"
 msgid "Exporting complete. Downloading file..."
 msgstr "Exportálás befejezve. Fájl letöltése..."
 
-#: src/components/routes/event/orders.tsx:122
+#: src/components/routes/event/orders.tsx:135
 msgid "Exporting Orders"
 msgstr "Megrendelések exportálása"
 
@@ -4930,7 +4954,7 @@ msgstr "Nem sikerült exportálni a partnereket."
 msgid "Failed to export attendees"
 msgstr "Résztvevők exportálása sikertelen"
 
-#: src/components/routes/event/orders.tsx:131
+#: src/components/routes/event/orders.tsx:144
 msgid "Failed to export orders"
 msgstr "Megrendelések exportálása sikertelen"
 
@@ -4980,11 +5004,11 @@ msgstr "Az időpontot nem sikerült újranyitni"
 msgid "Failed to reorder questions"
 msgstr "A kérdések újrarendezése sikertelen"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:553
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:554
 msgid "Failed to resend order confirmation"
 msgstr "A rendelés visszaigazolásának újraküldése sikertelen"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:529
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:530
 msgid "Failed to resend ticket"
 msgstr "A jegy újraküldése sikertelen"
 
@@ -5061,7 +5085,7 @@ msgstr "Partner frissítése sikertelen"
 msgid "Failed to update answer."
 msgstr "Válasz frissítése sikertelen."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:469
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:470
 msgid "Failed to update attendee"
 msgstr "A résztvevő frissítése sikertelen"
 
@@ -5077,7 +5101,7 @@ msgstr "Nem sikerült frissíteni az esemény állapotát"
 msgid "Failed to update messaging tier"
 msgstr "Az üzenetküldési szint frissítése sikertelen"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:504
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:505
 msgid "Failed to update order"
 msgstr "A rendelés frissítése sikertelen"
 
@@ -5183,7 +5207,7 @@ msgstr "Szűrés időpont szerint"
 msgid "Filter by Event"
 msgstr "Szűrés esemény szerint"
 
-#: src/components/routes/event/orders.tsx:192
+#: src/components/routes/event/orders.tsx:206
 msgid "Filter Orders"
 msgstr "Megrendelések szűrése"
 
@@ -5224,13 +5248,13 @@ msgstr "Első 90 nap"
 msgid "First attendee"
 msgstr "Első résztvevő"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:216
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:225
 msgid "First Invoice Number"
 msgstr "Első számla száma"
 
 #: src/components/modals/CreateAttendeeModal/index.tsx:209
 #: src/components/modals/ManageAttendeeModal/index.tsx:202
-#: src/components/modals/ManageOrderModal/index.tsx:229
+#: src/components/modals/ManageOrderModal/index.tsx:230
 #: src/components/routes/product-widget/CollectInformation/index.tsx:472
 #: src/components/routes/product-widget/CollectInformation/index.tsx:688
 msgid "First name"
@@ -5543,7 +5567,7 @@ msgstr "Vendég"
 msgid "Guest Management"
 msgstr "Vendégkezelés"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:641
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:645
 msgid "Guests"
 msgstr "Résztvevők"
 
@@ -5750,7 +5774,7 @@ msgid "Homepage Preview"
 msgstr "Honlap előnézet"
 
 #: src/components/modals/ManageAttendeeModal/index.tsx:203
-#: src/components/modals/ManageOrderModal/index.tsx:230
+#: src/components/modals/ManageOrderModal/index.tsx:231
 msgid "Homer"
 msgstr "Homer"
 
@@ -5827,7 +5851,7 @@ msgstr "Ha üres, a cím egy Google Maps link generálásához lesz felhasználv
 msgid "If checked, this category will be hidden from the public."
 msgstr "Ha be van jelölve, ez a kategória rejtve marad a nyilvánosság elől."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:168
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:177
 msgid "If enabled, check-in staff can either mark attendees as checked in or mark the order as paid and check in the attendees. If disabled, attendees associated with unpaid orders cannot be checked in."
 msgstr "Ha engedélyezve van, a bejelentkezési személyzet bejelentkezettként jelölheti meg a résztvevőket, vagy fizetettként jelölheti meg a megrendelést, és bejelentkezhet a résztvevők. Ha le van tiltva, a fizetetlen megrendelésekhez társított résztvevők nem jelentkezhetnek be."
 
@@ -6061,15 +6085,15 @@ msgstr "Számla"
 msgid "Invoice downloaded successfully"
 msgstr "Számla sikeresen letöltve"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:262
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:271
 msgid "Invoice Notes"
 msgstr "Számlamegjegyzések"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:207
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:216
 msgid "Invoice Numbering"
 msgstr "Számlaszámozás"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:187
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:196
 msgid "Invoice Settings"
 msgstr "Számla beállítások"
 
@@ -6094,7 +6118,7 @@ msgid "item(s)"
 msgstr "tétel(ek)"
 
 #: src/components/common/OrdersTable/index.tsx:233
-#: src/components/modals/ManageOrderModal/index.tsx:117
+#: src/components/modals/ManageOrderModal/index.tsx:118
 msgid "Items"
 msgstr "Tételek"
 
@@ -6147,6 +6171,10 @@ msgstr "Csatlakozás a várólistához: {productDisplayName}"
 #: src/components/common/WaitlistTable/index.tsx:221
 msgid "Joined"
 msgstr "Csatlakozott"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:66
+msgid "JPG, PNG, or PDF up to 10 MB"
+msgstr "JPG, PNG, or PDF up to 10 MB"
 
 #: src/components/routes/event/OccurrencesTab/RecurrenceScheduleDrawer/index.tsx:71
 msgid "July"
@@ -6271,7 +6299,7 @@ msgstr "Utolsó bejelentkezés"
 
 #: src/components/modals/CreateAttendeeModal/index.tsx:216
 #: src/components/modals/ManageAttendeeModal/index.tsx:204
-#: src/components/modals/ManageOrderModal/index.tsx:235
+#: src/components/modals/ManageOrderModal/index.tsx:236
 msgid "Last name"
 msgstr "Vezetéknév"
 
@@ -6322,7 +6350,7 @@ msgstr "Legutóbbi beléptetések"
 msgid "Leave “from” as today to start right away."
 msgstr "Hagyja az „Ettől” mezőt a mai napon az azonnali kezdéshez."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:201
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:210
 msgid "Leave blank to use the default word \"Invoice\""
 msgstr "Hagyja üresen az alapértelmezett „Számla” szó használatához"
 
@@ -6337,6 +6365,10 @@ msgstr "Hagyja üresen, ha ez a beléptetési lista minden időpontra vonatkozzo
 #: src/components/forms/CheckInListForm/index.tsx:106
 msgid "Leave on to cover every ticket on the event. Turn off to pick specific tickets."
 msgstr "Hagyja bekapcsolva, hogy az esemény minden jegyére vonatkozzon. Kapcsolja ki, ha konkrét jegyeket szeretne választani."
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
+msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
 
 #: src/components/routes/event/OccurrencesTab/OccurrenceEditModal/index.tsx:300
 msgid "Let them know about the change"
@@ -6429,7 +6461,7 @@ msgstr "Betöltés..."
 #: src/components/routes/event/Settings/index.tsx:54
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:150
 #: src/components/routes/my-tickets/index.tsx:90
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:335
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:336
 msgid "Location"
 msgstr "Helyszín"
 
@@ -6505,7 +6537,7 @@ msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat el
 msgid "Main Office"
 msgstr "Központi iroda"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:180
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:189
 msgid "Make billing address mandatory during checkout"
 msgstr "Tegye kötelezővé a számlázási címet a fizetés során"
 
@@ -6555,7 +6587,7 @@ msgstr "Kezelés a Stripe-ban"
 msgid "Manage order"
 msgstr "Megrendelés kezelése"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:100
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:102
 msgid "Manage payment and invoicing settings for this event."
 msgstr "Kezelje az esemény fizetési és számlázási beállításait."
 
@@ -6875,7 +6907,7 @@ msgstr "Nam placerat elementum..."
 #: src/components/routes/account/ManageAccount/sections/AccountSettings/index.tsx:63
 #: src/components/routes/admin/Configurations/index.tsx:224
 #: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:80
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:235
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:236
 msgid "Name"
 msgstr "Név"
 
@@ -7184,7 +7216,7 @@ msgstr "Még nincsenek rendelési kérdések"
 msgid "No orders found"
 msgstr "Nem találhatók rendelések"
 
-#: src/components/common/OrdersTable/index.tsx:377
+#: src/components/common/OrdersTable/index.tsx:380
 msgid "No orders to show"
 msgstr "Nincs megjeleníthető megrendelés"
 
@@ -7221,7 +7253,7 @@ msgid "No payment methods are currently available. Please contact the event orga
 msgstr "Jelenleg nem állnak rendelkezésre fizetési módok. Kérjük, vegye fel a kapcsolatot az eseményszervezővel segítségért."
 
 #: src/components/common/OrderStatusBadge/index.tsx:13
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:58
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:59
 msgid "No Payment Required"
 msgstr "Fizetés nem szükséges"
 
@@ -7387,8 +7419,8 @@ msgstr "Nem jogosult"
 #: src/components/layouts/CheckIn/AttendeeDetailSheet.tsx:238
 #: src/components/modals/ManageAttendeeModal/index.tsx:225
 #: src/components/modals/ManageAttendeeModal/index.tsx:247
-#: src/components/modals/ManageOrderModal/index.tsx:249
-#: src/components/modals/ManageOrderModal/index.tsx:277
+#: src/components/modals/ManageOrderModal/index.tsx:250
+#: src/components/modals/ManageOrderModal/index.tsx:284
 msgid "Notes"
 msgstr "Jegyzetek"
 
@@ -7416,18 +7448,18 @@ msgstr "November"
 msgid "Number of dates to create"
 msgstr "Létrehozandó időpontok száma"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:227
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:236
 msgid "Number of days allowed for payment (leave blank to omit payment terms from invoices)"
 msgstr "Engedélyezett napok száma a fizetésre (hagyja üresen a fizetési feltételek kihagyásához a számlákról)"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:209
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:218
 msgid "Number Prefix"
 msgstr "Szám előtag"
 
 #: src/components/common/OrderDetails/index.tsx:55
 #: src/components/forms/CheckInListForm/index.tsx:130
 #: src/components/modals/CreateAttendeeModal/index.tsx:253
-#: src/components/modals/ManageOrderModal/index.tsx:140
+#: src/components/modals/ManageOrderModal/index.tsx:141
 #: src/components/modals/SendMessageModal/index.tsx:357
 msgid "Occurrence"
 msgstr "Időpont"
@@ -7447,7 +7479,7 @@ msgid "Occurrence Summary"
 msgstr "Időpont összegzése"
 
 #: src/components/common/OrderDetails/index.tsx:55
-#: src/components/modals/ManageOrderModal/index.tsx:140
+#: src/components/modals/ManageOrderModal/index.tsx:141
 msgid "Occurrences"
 msgstr "Időpontok"
 
@@ -7506,14 +7538,14 @@ msgstr "Felajánlva"
 msgid "Offers expire after {timeoutHours} hours."
 msgstr "Az ajánlatok {timeoutHours} óra után lejárnak."
 
-#: src/components/common/OrdersTable/index.tsx:300
+#: src/components/common/OrdersTable/index.tsx:301
 #: src/components/layouts/CheckIn/index.tsx:573
 #: src/components/layouts/CheckIn/index.tsx:575
 #: src/components/routes/product-widget/Payment/index.tsx:135
 msgid "Offline"
 msgstr "Offline"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:146
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:148
 msgid "Offline orders are not reflected in event statistics until the order is marked as paid."
 msgstr "Az offline megrendelések nem jelennek meg az esemény statisztikáiban, amíg a megrendelés nem kerül fizetettként megjelölésre."
 
@@ -7521,19 +7553,19 @@ msgstr "Az offline megrendelések nem jelennek meg az esemény statisztikáiban,
 msgid "Offline payment failed. Please try again or contact the event organizer."
 msgstr "Offline fizetés sikertelen. Kérjük, próbálja újra, vagy lépjen kapcsolatba az eseményszervezővel."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:152
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:154
 msgid "Offline Payment Instructions"
 msgstr "Offline fizetési utasítások"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:91
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:93
 msgid "Offline Payments"
 msgstr "Offline fizetések"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:140
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:142
 msgid "Offline Payments Information"
 msgstr "Offline fizetési információk"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:135
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:137
 msgid "Offline Payments Settings"
 msgstr "Offline fizetési beállítások"
 
@@ -7716,9 +7748,13 @@ msgstr "Oldalsáv megnyitása"
 msgid "Option {i}"
 msgstr "Opció {i}"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:263
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:272
 msgid "Optional additional information to appear on all invoices (e.g., payment terms, late payment fees, return policy)"
 msgstr "Opcionális további információk, amelyek megjelennek minden számlán (pl. fizetési feltételek, késedelmi díjak, visszatérítési szabályzat)."
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:75
+msgid "Optional bank transfer or transaction reference"
+msgstr "Optional bank transfer or transaction reference"
 
 #: src/components/routes/admin/Announcements/index.tsx:456
 msgid "Optional call to action"
@@ -7728,7 +7764,7 @@ msgstr "Opcionális cselekvésre ösztönzés"
 msgid "Optional nickname shown in pickers, e.g. \"HQ Conference Room\""
 msgstr "A választókban megjelenő opcionális elnevezés, pl. \"Központi tárgyaló\""
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:210
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:219
 msgid "Optional prefix for invoice numbers (e.g., INV-)"
 msgstr "Opcionális előtag a számlaszámokhoz (pl. INV-)"
 
@@ -7781,7 +7817,7 @@ msgid "Order answers"
 msgstr "Rendelési válaszok"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:387
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:376
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:377
 msgid "Order cancelled"
 msgstr "Rendelés törölve"
 
@@ -7791,7 +7827,7 @@ msgstr "Megrendelés törölve"
 
 #: src/components/layouts/Checkout/index.tsx:322
 #: src/components/routes/product-widget/CollectInformation/index.tsx:377
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:386
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:387
 msgid "Order complete"
 msgstr "Rendelés befejezve"
 
@@ -7800,7 +7836,7 @@ msgstr "Rendelés befejezve"
 msgid "Order Confirmation"
 msgstr "Rendelés megerősítése"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:547
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:548
 msgid "Order confirmation resent successfully"
 msgstr "Rendelés visszaigazolása sikeresen újraküldve"
 
@@ -7808,7 +7844,7 @@ msgstr "Rendelés visszaigazolása sikeresen újraküldve"
 msgid "Order Created"
 msgstr "Megrendelés létrehozva"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:272
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:273
 msgid "Order Date"
 msgstr "Megrendelés dátuma"
 
@@ -7817,7 +7853,7 @@ msgid "Order details"
 msgstr "Megrendelés részletei"
 
 #: src/components/common/OrdersTable/index.tsx:178
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:616
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:620
 msgid "Order Details"
 msgstr "Megrendelés részletei"
 
@@ -7854,7 +7890,7 @@ msgstr "Megrendelés fizetettként megjelölve"
 msgid "Order not found"
 msgstr "Rendelés nem található"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:564
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:565
 msgid "Order Not Found"
 msgstr "Rendelés nem található"
 
@@ -7878,7 +7914,7 @@ msgstr "Megrendelők termékekkel"
 msgid "Order Ref"
 msgstr "Rendelés hiv."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:251
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:252
 msgid "Order Reference"
 msgstr "Rendelésszám"
 
@@ -7886,7 +7922,7 @@ msgstr "Rendelésszám"
 msgid "Order Refunded"
 msgstr "Megrendelés visszatérítve"
 
-#: src/components/routes/event/orders.tsx:54
+#: src/components/routes/event/orders.tsx:58
 msgid "Order Status"
 msgstr "Megrendelés állapota"
 
@@ -7895,7 +7931,7 @@ msgid "Order statuses"
 msgstr "Megrendelés állapotok"
 
 #: src/components/common/InlineOrderSummary/index.tsx:61
-#: src/components/modals/ManageOrderModal/index.tsx:272
+#: src/components/modals/ManageOrderModal/index.tsx:273
 msgid "Order Summary"
 msgstr "Megrendelés összefoglaló"
 
@@ -7911,7 +7947,7 @@ msgstr "Rendelés összege"
 msgid "Order Updated"
 msgstr "Megrendelés frissítve"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:486
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:487
 msgid "Order updated successfully"
 msgstr "A rendelés sikeresen frissítve"
 
@@ -7920,7 +7956,7 @@ msgid "Order was cancelled"
 msgstr "Rendelés törölve lett"
 
 #: src/components/routes/event/OccurrencesTab/index.tsx:415
-#: src/components/routes/event/orders.tsx:197
+#: src/components/routes/event/orders.tsx:211
 msgid "orders"
 msgstr "megrendelés"
 
@@ -7931,7 +7967,7 @@ msgstr "megrendelés"
 #: src/components/routes/admin/Attribution/index.tsx:200
 #: src/components/routes/admin/Orders/index.tsx:44
 #: src/components/routes/event/OccurrencesTab/OccurrenceMenu.tsx:56
-#: src/components/routes/event/orders.tsx:154
+#: src/components/routes/event/orders.tsx:168
 #: src/components/routes/event/Reports/OccurrenceSummaryReport/index.tsx:78
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:118
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:144
@@ -7945,7 +7981,7 @@ msgstr "Megrendelések"
 msgid "Orders Completed"
 msgstr "Befejezett rendelések"
 
-#: src/components/routes/event/orders.tsx:126
+#: src/components/routes/event/orders.tsx:139
 msgid "Orders Exported"
 msgstr "Exportált megrendelések"
 
@@ -7961,16 +7997,16 @@ msgstr "Rendelések:"
 msgid "Organic Accounts"
 msgstr "Organikus fiókok"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:245
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:254
 msgid "Organization Address"
 msgstr "Szervezet címe"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:236
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:245
 msgid "Organization Details"
 msgstr "Szervezet részletei"
 
 #: src/components/forms/OrganizerForm/index.tsx:28
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:238
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:247
 msgid "Organization Name"
 msgstr "Szervezet neve"
 
@@ -7985,7 +8021,7 @@ msgstr "Szervezet neve"
 #: src/components/routes/admin/SpamEvents/index.tsx:129
 #: src/components/routes/admin/SpamEvents/index.tsx:245
 #: src/components/routes/events/Dashboard/index.tsx:194
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:354
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:355
 msgid "Organizer"
 msgstr "Szervező"
 
@@ -8047,7 +8083,7 @@ msgstr "Szervezők"
 msgid "Organizers can only manage events and products. They cannot manage users, account settings or billing information."
 msgstr "A szervezők csak eseményeket és termékeket kezelhetnek. Nem kezelhetik a felhasználókat, fiókbeállításokat vagy számlázási információkat."
 
-#: src/components/common/OrdersTable/index.tsx:305
+#: src/components/common/OrdersTable/index.tsx:308
 #: src/constants/eventCategories.ts:31
 msgid "Other"
 msgstr "Egyéb"
@@ -8135,7 +8171,7 @@ msgstr "Részleges visszatérítés"
 
 #: src/components/common/OrderStatusBadge/index.tsx:16
 #: src/components/routes/event/orders.tsx:33
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:73
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:74
 msgid "Partially Refunded"
 msgstr "Részben visszatérítve"
 
@@ -8233,7 +8269,7 @@ msgstr "Fizetés"
 msgid "Payment & Invoicing"
 msgstr "Fizetés és számlázás"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:99
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:101
 msgid "Payment & Invoicing Settings"
 msgstr "Fizetési és számlázási beállítások"
 
@@ -8241,16 +8277,16 @@ msgstr "Fizetési és számlázási beállítások"
 msgid "Payment Date"
 msgstr "Fizetés dátuma"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:226
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:235
 msgid "Payment Due Period"
 msgstr "Fizetési határidő"
 
 #: src/components/common/OrderStatusBadge/index.tsx:14
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:60
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:61
 msgid "Payment Failed"
 msgstr "Fizetés sikertelen"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:412
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:413
 #: src/components/routes/product-widget/Payment/PaymentMethods/Offline/index.tsx:14
 msgid "Payment Instructions"
 msgstr "Fizetési utasítások"
@@ -8259,25 +8295,50 @@ msgstr "Fizetési utasítások"
 msgid "Payment method"
 msgstr "Fizetési mód"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:106
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:108
 msgid "Payment Methods"
 msgstr "Fizetési módok"
 
+#: src/components/modals/ManageOrderModal/index.tsx:278
+#: src/components/routes/event/orders.tsx:70
+msgid "Payment Proof"
+msgstr "Payment Proof"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:32
+msgid "Payment proof approved"
+msgstr "Payment proof approved"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:41
+msgid "Payment proof rejected"
+msgstr "Payment proof rejected"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:39
+msgid "Payment proof submitted for review"
+msgstr "Payment proof submitted for review"
+
 #: src/components/common/OrderDetails/index.tsx:96
-#: src/components/modals/ManageOrderModal/index.tsx:151
+#: src/components/modals/ManageOrderModal/index.tsx:152
 msgid "Payment provider"
 msgstr "Fizetési szolgáltató"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:65
+msgid "Payment receipt"
+msgstr "Payment receipt"
 
 #: src/components/forms/StripeCheckoutForm/index.tsx:130
 msgid "Payment received"
 msgstr "Fizetés megérkezett"
 
 #: src/components/common/OrderStatusBadge/index.tsx:12
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:61
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:62
 msgid "Payment Received"
 msgstr "Fizetés beérkezett"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:285
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:74
+msgid "Payment reference"
+msgstr "Payment reference"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:286
 msgid "Payment Status"
 msgstr "Fizetési állapot"
 
@@ -8285,7 +8346,7 @@ msgstr "Fizetési állapot"
 msgid "Payment succeeded!"
 msgstr "Fizetés sikeres!"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:224
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:233
 msgid "Payment Terms"
 msgstr "Fizetési feltételek"
 
@@ -8428,7 +8489,7 @@ msgid "Place this in the <head> of your website."
 msgstr "Helyezze ezt a weboldalának <head> részébe."
 
 #: src/components/layouts/CheckIn/AttendeeDetailSheet.tsx:269
-#: src/components/modals/ManageOrderModal/index.tsx:125
+#: src/components/modals/ManageOrderModal/index.tsx:126
 msgid "Placed"
 msgstr "Leadva"
 
@@ -8554,7 +8615,7 @@ msgstr "Kérjük, válasszon ki legalább egy terméket."
 
 #: src/components/routes/event/Affiliates/index.tsx:53
 #: src/components/routes/event/attendees.tsx:169
-#: src/components/routes/event/orders.tsx:132
+#: src/components/routes/event/orders.tsx:145
 msgid "Please try again."
 msgstr "Kérjük, próbálja újra."
 
@@ -8579,7 +8640,7 @@ msgstr "Kérjük, várjon, amíg előkészítjük résztvevőit az exportálásr
 msgid "Please wait while we prepare your invoice..."
 msgstr "Kérjük, várjon, amíg előkészítjük számláját..."
 
-#: src/components/routes/event/orders.tsx:123
+#: src/components/routes/event/orders.tsx:136
 msgid "Please wait while we prepare your orders for export..."
 msgstr "Kérjük, várjon, amíg előkészítjük megrendeléseit az exportálásra..."
 
@@ -8669,7 +8730,7 @@ msgstr "Elsődleges szín"
 msgid "Primary Text Color"
 msgstr "Elsődleges szövegszín"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:650
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:654
 msgid "Print All Tickets"
 msgstr "Összes jegy nyomtatása"
 
@@ -8677,7 +8738,7 @@ msgstr "Összes jegy nyomtatása"
 msgid "Print Preview"
 msgstr "Nyomtatási előnézet"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:116
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:117
 msgid "Print Ticket"
 msgstr "Jegy nyomtatása"
 
@@ -8700,7 +8761,7 @@ msgstr "Adatvédelmi irányelvek"
 msgid "Process Refund"
 msgstr "Visszatérítés feldolgozása"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:395
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:396
 msgid "Processing order"
 msgstr "Rendelés feldolgozása"
 
@@ -8815,7 +8876,7 @@ msgid "Promo {promo_code} code applied"
 msgstr "Promóciós kód {promo_code} alkalmazva"
 
 #: src/components/common/OrderDetails/index.tsx:106
-#: src/components/modals/ManageOrderModal/index.tsx:155
+#: src/components/modals/ManageOrderModal/index.tsx:156
 msgid "Promo code"
 msgstr "Promóciós kód"
 
@@ -8865,6 +8926,11 @@ msgstr "Csak promócióval"
 #: src/components/modals/SendMessageModal/index.tsx:575
 msgid "Promotional emails may result in account suspension"
 msgstr "A promóciós e-mailek fiók felfüggesztéshez vezethetnek"
+
+#: src/components/common/OrdersTable/index.tsx:302
+#: src/components/routes/event/orders.tsx:37
+msgid "Proof awaiting review"
+msgstr "Proof awaiting review"
 
 #: src/components/forms/QuestionForm/index.tsx:189
 msgid ""
@@ -8969,7 +9035,7 @@ msgid "Questions"
 msgstr "Kérdések"
 
 #: src/components/modals/ManageAttendeeModal/index.tsx:259
-#: src/components/modals/ManageOrderModal/index.tsx:294
+#: src/components/modals/ManageOrderModal/index.tsx:301
 msgid "Questions & Answers"
 msgstr "Kérdések és válaszok"
 
@@ -8994,10 +9060,10 @@ msgstr "Rádió opció"
 msgid "Rate"
 msgstr "Arány"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:467
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:502
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:527
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:551
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:468
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:503
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:528
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:552
 msgid "Rate limit exceeded. Please try again later."
 msgstr "Túllépte a korlátot. Kérjük, próbálja újra később."
 
@@ -9017,6 +9083,11 @@ msgstr "Készen állsz az élesítésre?"
 #: src/components/layouts/AuthLayout/index.tsx:20
 msgid "Real-time analytics"
 msgstr "Valós idejű elemzések"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:72
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:59
+msgid "Reason"
+msgstr "Reason"
 
 #: src/components/routes/account/ManageAccount/sections/DangerZone/index.tsx:171
 msgid "Reason (optional)"
@@ -9114,6 +9185,11 @@ msgstr "Reddit"
 msgid "Redirecting to Stripe..."
 msgstr "Átirányítás a Stripe-ra..."
 
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:71
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:58
+msgid "Reference"
+msgstr "Reference"
+
 #: src/components/routes/admin/Attribution/index.tsx:88
 msgid "Referral Accounts"
 msgstr "Ajánlási fiókok"
@@ -9140,7 +9216,7 @@ msgstr "Visszatérítés összege"
 msgid "Refund failed"
 msgstr "Visszatérítés sikertelen"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:71
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:72
 msgid "Refund Failed"
 msgstr "Visszatérítés sikertelen"
 
@@ -9157,7 +9233,7 @@ msgid "Refund pending"
 msgstr "Visszatérítés folyamatban"
 
 #: src/components/common/OrderStatusBadge/index.tsx:17
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:70
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:71
 msgid "Refund Pending"
 msgstr "Visszatérítés függőben"
 
@@ -9165,8 +9241,8 @@ msgstr "Visszatérítés függőben"
 msgid "Refund recorded successfully."
 msgstr "A visszatérítés sikeresen rögzítve."
 
-#: src/components/routes/event/orders.tsx:60
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:278
+#: src/components/routes/event/orders.tsx:64
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:279
 msgid "Refund Status"
 msgstr "Visszatérítés állapota"
 
@@ -9175,7 +9251,7 @@ msgstr "Visszatérítés állapota"
 #: src/components/common/StatBoxes/index.tsx:87
 #: src/components/routes/event/orders.tsx:32
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:428
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:72
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:73
 msgid "Refunded"
 msgstr "Visszatérítve"
 
@@ -9204,6 +9280,18 @@ msgstr "Regisztrációs kérdések"
 #: src/components/common/CookieConsentBanner/index.tsx:135
 msgid "Reject all"
 msgstr "Összes elutasítása"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:105
+msgid "Reject proof"
+msgstr "Reject proof"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:16
+msgid "Rejected"
+msgstr "Rejected"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:81
+msgid "Rejection reason"
+msgstr "Rejection reason"
 
 #: src/components/layouts/CheckIn/tabs/SearchTab.tsx:115
 #: src/components/layouts/CheckIn/tabs/SearchTab.tsx:142
@@ -9274,7 +9362,7 @@ msgstr "Kérelmezve"
 msgid "Requested by"
 msgstr "Kérelmező"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:179
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:188
 msgid "Require Billing Address"
 msgstr "Számlázási cím kötelező"
 
@@ -9290,7 +9378,7 @@ msgstr "Az oldal működéséhez szükséges, például a bejelentkezés megtart
 msgid "Resend code"
 msgstr "Kód újraküldése"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:261
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:262
 msgid "Resend Confirmation"
 msgstr "Visszaigazolás újraküldése"
 
@@ -9319,7 +9407,7 @@ msgstr "Meghívó újraküldése"
 msgid "Resend order email"
 msgstr "Megrendelés e-mail újraküldése"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:135
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:136
 msgid "Resend Ticket"
 msgstr "Jegy újraküldése"
 
@@ -9331,7 +9419,7 @@ msgstr "Jegy e-mail újraküldése"
 msgid "Resending..."
 msgstr "Újraküldés..."
 
-#: src/components/common/OrdersTable/index.tsx:329
+#: src/components/common/OrdersTable/index.tsx:332
 msgid "Reserved"
 msgstr "Lefoglalva"
 
@@ -9564,7 +9652,7 @@ msgstr "Szombat"
 #: src/components/routes/event/Settings/Sections/HomepageAndCheckoutSettings/index.tsx:141
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:193
 #: src/components/routes/event/Settings/Sections/MiscSettings/index.tsx:94
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:275
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:284
 #: src/components/routes/event/Settings/Sections/RecurringEventSettings/index.tsx:72
 #: src/components/routes/event/Settings/Sections/SeoSettings/index.tsx:85
 #: src/components/routes/event/Settings/Sections/WaitlistSettings/index.tsx:80
@@ -9580,7 +9668,7 @@ msgstr "Mentés"
 
 #: src/components/modals/LocationEditModal/index.tsx:162
 #: src/components/modals/ManageAttendeeModal/index.tsx:187
-#: src/components/modals/ManageOrderModal/index.tsx:212
+#: src/components/modals/ManageOrderModal/index.tsx:213
 #: src/components/routes/admin/Announcements/index.tsx:502
 #: src/components/routes/admin/Configurations/index.tsx:273
 #: src/components/routes/event/HomepageDesigner/index.tsx:305
@@ -9759,7 +9847,7 @@ msgstr "Keresés név vagy e-mail alapján..."
 msgid "Search by name, email, or account..."
 msgstr "Keresés név, e-mail vagy fiók alapján..."
 
-#: src/components/routes/event/orders.tsx:158
+#: src/components/routes/event/orders.tsx:172
 msgid "Search by name, email, or order #..."
 msgstr "Keresés név, e-mail vagy rendelési szám alapján..."
 
@@ -10189,7 +10277,7 @@ msgstr "Az időpont címkéjének beállítása vagy törlése"
 msgid "Set the end time of each date to be this long after its start time."
 msgstr "Állítsa be minden időpont záró idejét ennyivel a kezdés utánra."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:217
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:226
 msgid "Set the starting number for invoice numbering. This cannot be changed once invoices have been generated."
 msgstr "Állítsa be a számlaszámozás kezdő számát. Ez nem módosítható, amint a számlák elkészültek."
 
@@ -10406,7 +10494,7 @@ msgid "Signed Up"
 msgstr "Regisztrált"
 
 #: src/components/modals/ManageAttendeeModal/index.tsx:205
-#: src/components/modals/ManageOrderModal/index.tsx:236
+#: src/components/modals/ManageOrderModal/index.tsx:237
 msgid "Simpson"
 msgstr "Simpson"
 
@@ -10649,7 +10737,7 @@ msgstr "Statisztika"
 #: src/components/common/AttendeeTable/index.tsx:251
 #: src/components/common/CheckInListTable/index.tsx:158
 #: src/components/common/OrderDetails/index.tsx:71
-#: src/components/common/OrdersTable/index.tsx:314
+#: src/components/common/OrdersTable/index.tsx:317
 #: src/components/common/OrganizerWebhookTable/index.tsx:238
 #: src/components/common/WaitlistTable/index.tsx:205
 #: src/components/common/WebhookTable/index.tsx:238
@@ -10658,7 +10746,7 @@ msgstr "Statisztika"
 #: src/components/forms/WebhookForm/index.tsx:164
 #: src/components/modals/EditUserModal/index.tsx:104
 #: src/components/modals/ManageAttendeeModal/index.tsx:133
-#: src/components/modals/ManageOrderModal/index.tsx:121
+#: src/components/modals/ManageOrderModal/index.tsx:122
 #: src/components/routes/account/ManageAccount/sections/Users/index.tsx:161
 #: src/components/routes/admin/Announcements/index.tsx:159
 #: src/components/routes/admin/Announcements/index.tsx:469
@@ -10684,7 +10772,7 @@ msgstr "Megszemélyesítés leállítása"
 
 #: src/components/common/OrdersTable/index.tsx:295
 #: src/components/routes/admin/Dashboard/index.tsx:424
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:86
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:88
 msgid "Stripe"
 msgstr "Stripe"
 
@@ -10746,6 +10834,14 @@ msgstr "A tárgy itt fog megjelenni"
 #: src/components/common/EmailTemplateSettings/EmailTemplateSettingsBase.tsx:267
 msgid "Subject:"
 msgstr "Tárgy:"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:46
+msgid "Submit Payment Proof"
+msgstr "Submit Payment Proof"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:85
+msgid "Submit proof"
+msgstr "Submit proof"
 
 #: src/components/common/InlineOrderSummary/index.tsx:148
 #: src/components/common/OrderSummary/index.tsx:53
@@ -10857,7 +10953,7 @@ msgstr "Helyszín sikeresen frissítve"
 msgid "Successfully Updated Misc Settings"
 msgstr "Egyéb beállítások sikeresen frissítve"
 
-#: src/components/modals/ManageOrderModal/index.tsx:89
+#: src/components/modals/ManageOrderModal/index.tsx:90
 msgid "Successfully updated order"
 msgstr "Megrendelés sikeresen frissítve"
 
@@ -10865,7 +10961,7 @@ msgstr "Megrendelés sikeresen frissítve"
 msgid "Successfully Updated Organizer"
 msgstr "Szervező sikeresen frissítve"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:75
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:77
 msgid "Successfully Updated Payment & Invoicing Settings"
 msgstr "Fizetési és számlázási beállítások sikeresen frissítve"
 
@@ -10916,7 +11012,7 @@ msgstr "Webhook sikeresen frissítve"
 
 #: src/components/common/ProgressStepper/index.tsx:20
 #: src/components/common/ProgressStepper/index.tsx:24
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:586
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:587
 msgid "Summary"
 msgstr "Összefoglaló"
 
@@ -11007,11 +11103,11 @@ msgstr "Adó és díjak"
 msgid "Tax collected grouped by tax type and event"
 msgstr "Beszedett adók adótípus és esemény szerint csoportosítva"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:253
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:262
 msgid "Tax Details"
 msgstr "Adó adatok"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:254
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:263
 msgid "Tax information to appear at the bottom of all invoices (e.g., VAT number, tax registration)"
 msgstr "Adózási információk, amelyek minden számla alján megjelennek (pl. adószám, adóazonosító szám)."
 
@@ -11470,7 +11566,7 @@ msgstr "Erre az eseményre minden jegy elkelt"
 msgid "This event's dates and times are set on the occurrence schedule."
 msgstr "Ennek az eseménynek az időpontjait az időpontok ütemtervében állíthatja be."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:153
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:155
 msgid "This information will be shown on the payment page, order summary page, and order confirmation email."
 msgstr "Ez az információ megjelenik a fizetési oldalon, a megrendelés összefoglaló oldalán és a megrendelés visszaigazoló e-mailben."
 
@@ -11531,7 +11627,7 @@ msgstr "Ez a megrendelés már ki lett fizetve."
 msgid "This order has already been refunded."
 msgstr "Ez a megrendelés már visszatérítésre került."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:377
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:378
 msgid "This order has been cancelled."
 msgstr "Ez a megrendelés törölve lett."
 
@@ -11539,11 +11635,11 @@ msgstr "Ez a megrendelés törölve lett."
 msgid "This order has expired. Please start again."
 msgstr "Ez a megrendelés lejárt. Kérjük, kezdje újra."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:396
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:397
 msgid "This order is being processed."
 msgstr "Ez a rendelés feldolgozás alatt áll."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:387
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:388
 msgid "This order is complete."
 msgstr "Ez a megrendelés kész."
 
@@ -11720,7 +11816,7 @@ msgstr "Jegy előnézet ehhez:"
 msgid "Ticket price"
 msgstr "Jegyár"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:523
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:524
 msgid "Ticket resent successfully"
 msgstr "Jegy sikeresen újraküldve"
 
@@ -11809,7 +11905,7 @@ msgstr "Felhasználások száma"
 #: src/components/routes/auth/AcceptInvitation/index.tsx:119
 #: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:145
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:125
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:349
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:350
 #: src/components/routes/profile/ManageProfile/index.tsx:188
 msgid "Timezone"
 msgstr "Időzóna"
@@ -11862,7 +11958,7 @@ msgstr "Legjobb szervezők (Elmúlt 14 nap)"
 #: src/components/common/InlineOrderSummary/index.tsx:219
 #: src/components/common/OrderSummary/index.tsx:104
 #: src/components/layouts/CheckIn/tabs/StatsTab.tsx:99
-#: src/components/modals/ManageOrderModal/index.tsx:113
+#: src/components/modals/ManageOrderModal/index.tsx:114
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:352
 #: src/components/routes/product-widget/SelectProducts/Prices/Tiered/index.tsx:91
 msgid "Total"
@@ -11923,7 +12019,7 @@ msgid "Total Quantity Across All Dates"
 msgstr "Teljes mennyiség az összes időpontra"
 
 #: src/components/common/OrderDetails/index.tsx:87
-#: src/components/modals/ManageOrderModal/index.tsx:159
+#: src/components/modals/ManageOrderModal/index.tsx:160
 msgid "Total refunded"
 msgstr "Összes visszatérített"
 
@@ -12026,6 +12122,10 @@ msgstr "Írjon a kereséshez..."
 msgid "Typography"
 msgstr "Tipográfia"
 
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:34
+msgid "Unable to approve payment proof"
+msgstr "Unable to approve payment proof"
+
 #: src/components/layouts/CheckIn/index.tsx:271
 msgid "Unable to check in attendee"
 msgstr "Nem sikerült bejelentkezni a résztvevőnek."
@@ -12047,6 +12147,10 @@ msgstr "Nem sikerült létrehozni a terméket. Kérjük, ellenőrizze adatait."
 msgid "Unable to create question. Please check the your details"
 msgstr "Nem sikerült kérdést létrehozni. Kérjük, ellenőrizze adatait."
 
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:55
+msgid "Unable to download payment proof"
+msgstr "Unable to download payment proof"
+
 #: src/components/modals/DuplicateProductModal/index.tsx:115
 msgid "Unable to duplicate product. Please check the your details"
 msgstr "Nem sikerült másolni a terméket. Kérjük, ellenőrizze adatait."
@@ -12066,6 +12170,14 @@ msgstr "A résztvevő adatai nem tölthetők be."
 #: src/components/routes/product-widget/SelectProducts/index.tsx:330
 msgid "Unable to load products for this date. Please try again."
 msgstr "Az időponthoz tartozó termékek nem tölthetők be. Próbálja újra."
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:43
+msgid "Unable to reject payment proof"
+msgstr "Unable to reject payment proof"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:41
+msgid "Unable to submit payment proof"
+msgstr "Unable to submit payment proof"
 
 #: src/components/layouts/CheckIn/index.tsx:220
 msgid "Unable to undo check-in"
@@ -12269,6 +12381,10 @@ msgstr "Logó feltöltése a szervezőhöz"
 #: src/components/common/Editor/Controls/InsertImageControl/index.tsx:163
 msgid "Upload Image"
 msgstr "Kép feltöltése"
+
+#: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:49
+msgid "Upload your bank-transfer receipt or payment confirmation. The organizer will review it before marking your order as paid."
+msgstr "Upload your bank-transfer receipt or payment confirmation. The organizer will review it before marking your order as paid."
 
 #: src/components/common/Editor/Controls/InsertImageControl/index.tsx:136
 msgid "Uploading image..."
@@ -12617,7 +12733,7 @@ msgstr "Rendelés megtekintése"
 msgid "View Order Details"
 msgstr "Rendelés részleteinek megtekintése"
 
-#: src/components/routes/event/orders.tsx:153
+#: src/components/routes/event/orders.tsx:167
 msgid "View order details, issue refunds, and resend confirmations."
 msgstr "Rendelési részletek megtekintése, visszatérítések kibocsátása és megerősítések újraküldése."
 
@@ -12628,7 +12744,7 @@ msgstr "Szervezői honlap megtekintése"
 
 #: src/components/common/EmailTemplateEditor/EmailTemplateEditor.tsx:59
 #: src/components/common/EmailTemplateEditor/EmailTemplateEditor.tsx:72
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:108
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:109
 msgid "View Ticket"
 msgstr "Jegy megtekintése"
 
@@ -12725,7 +12841,7 @@ msgstr "Nem találtunk ehhez az e-mail címhez tartozó rendeléseket."
 msgid "We couldn't find any tickets matching {0}"
 msgstr "Nem találtunk jegyeket, amelyek megfelelnek a következőnek: {0}"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:565
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:566
 msgid "We couldn't find the order you're looking for. The link may have expired or the order details may have changed."
 msgstr "Nem találtuk a keresett rendelést. A link lejárhatott, vagy a rendelés adatai megváltozhattak."
 
@@ -13057,7 +13173,7 @@ msgstr "Amikor az ügyfelek jegyeket vásárolnak, megrendeléseik itt fognak me
 msgid "When enabled, buyers can copy their own name and email onto all attendees at once. Turn this off to remove the \"All attendees\" option; buyers can still copy to the first attendee, and the rest must be entered individually."
 msgstr "Ha engedélyezve van, a vásárlók egyszerre másolhatják át nevüket és e-mail-címüket az összes résztvevőhöz. Kapcsolja ki, hogy eltávolítsa az \"Összes résztvevő\" lehetőséget; a vásárlók továbbra is átmásolhatják adataikat az első résztvevőhöz, a többit egyenként kell megadni."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:192
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:201
 msgid "When enabled, invoices will be generated for ticket orders. Invoices will sent along with the order confirmation email. Attendees can also download their invoices from the order confirmation page."
 msgstr "Ha engedélyezve van, számlák készülnek a jegyrendelésekről. A számlákat a rendelés visszaigazoló e-maillel együtt küldjük el. A résztvevők a rendelés visszaigazoló oldaláról is letölthetik számláikat."
 
@@ -13073,7 +13189,7 @@ msgstr "Ha engedélyezve van, az új események marketing opt-in jelölőnégyze
 msgid "When enabled, no application fees will be charged on Stripe Connect transactions. Use this for countries where application fees are not supported."
 msgstr "Ha engedélyezve van, a Stripe Connect tranzakciókra nem számítanak fel alkalmazási díjakat. Használja olyan országokban, ahol az alkalmazási díjak nem támogatottak."
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:142
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:144
 msgid "When offline payments are enabled, users will be able to complete their orders and receive their tickets. Their tickets will clearly indicate the order is not paid, and the check-in tool will notify the check-in staff if an order requires payment."
 msgstr "Ha az offline fizetések engedélyezve vannak, a felhasználók befejezhetik megrendeléseiket és megkaphatják jegyeiket. Jegyükön egyértelműen fel lesz tüntetve, hogy a megrendelés nincs kifizetve, és a bejelentkezési eszköz értesíti a bejelentkezési személyzetet, ha egy megrendelés fizetést igényel."
 
@@ -13308,7 +13424,7 @@ msgstr "Ellenőriznie kell fiókja e-mail címét, mielőtt üzeneteket küldhet
 msgid "You receive"
 msgstr "Ön kap"
 
-#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:144
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:146
 msgid "You will have to mark an order as paid manually. This can be done on the manage order page."
 msgstr "Manuálisan kell fizetettként megjelölnie egy megrendelést. Ez a megrendelés kezelése oldalon tehető meg."
 
@@ -13332,7 +13448,7 @@ msgstr "Legalább egy termékre szüksége lesz a kezdéshez. Ingyenes, fizetős
 msgid "You're changing session times"
 msgstr "Alkalmak időpontját módosítja"
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:169
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:170
 msgid "You're going to {0}!"
 msgstr "El fog menni ide: {0}!"
 
@@ -13428,11 +13544,11 @@ msgstr "Az Ön neve"
 msgid "Your new password must be at least 8 characters long."
 msgstr "Az új jelszónak legalább 8 karakter hosszúnak kell lennie."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:602
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:603
 msgid "Your order details have been updated. A confirmation email has been sent to the new email address."
 msgstr "A rendelés adatai frissültek. Megerősítő e-mailt küldtünk az új e-mail címre."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:170
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:171
 msgid "Your order has been cancelled"
 msgstr "Az Ön megrendelése törölve lett."
 
@@ -13440,15 +13556,15 @@ msgstr "Az Ön megrendelése törölve lett."
 msgid "Your order has been cancelled."
 msgstr "A rendelésed törlésre került."
 
-#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:172
+#: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:173
 msgid "Your order is awaiting payment"
 msgstr "A rendelése fizetésre vár"
 
-#: src/components/routes/event/orders.tsx:127
+#: src/components/routes/event/orders.tsx:140
 msgid "Your orders have been exported successfully."
 msgstr "Megrendelései sikeresen exportálva."
 
-#: src/components/common/OrdersTable/index.tsx:380
+#: src/components/common/OrdersTable/index.tsx:383
 msgid "Your orders will appear here once they start rolling in."
 msgstr "Megrendelései itt fognak megjelenni, amint beérkeznek."
 

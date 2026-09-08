@@ -14,5 +14,6 @@ readonly class AnonymizationContext
         public array $soleUserEmails,
         public array $stripeAccountIds,
         public array $imageFiles,
+        public array $paymentProofFiles,
     ) {}
 }

@@ -77,6 +77,8 @@ class PartialUpdateEventSettingsHandler
                 'offline_payment_instructions' => array_key_exists('offline_payment_instructions', $eventSettingsDTO->settings)
                     ? $eventSettingsDTO->settings['offline_payment_instructions']
                     : $existingSettings->getOfflinePaymentInstructions(),
+                'allow_offline_payment_proof' => $eventSettingsDTO->settings['allow_offline_payment_proof']
+                    ?? $existingSettings->getAllowOfflinePaymentProof(),
                 'allow_orders_awaiting_offline_payment_to_check_in' => $eventSettingsDTO->settings['allow_orders_awaiting_offline_payment_to_check_in']
                     ?? $existingSettings->getAllowOrdersAwaitingOfflinePaymentToCheckIn(),
 

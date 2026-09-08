@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { test, expect } from '../../fixtures';
 import { OrderPage } from '../../pages/order.page';
 import { createAwaitingOfflineOrder, createCompletedPaidOrder, createLiveEventWithPaidTicket } from '../../api/factory';
@@ -16,6 +18,36 @@ test.describe('offline orders', () => {
     await expect(row.getByText('Awaiting Payment')).toBeVisible();
 
     await orders.chooseRowAction(order.buyerEmail, 'Mark as paid');
+
+    await expect(row.getByText('Completed')).toBeVisible();
+  });
+
+  test('an organizer approves a buyer payment proof', async ({ authedPage, api, account, publicApi }) => {
+    const event = await createLiveEventWithPaidTicket(api, account.organizerId);
+    const order = await createAwaitingOfflineOrder(api, publicApi, event, { buyerEmail: uniqueEmail() });
+    await api.updateEventSettings(event.eventId, { allow_offline_payment_proof: true });
+
+    const submission = await publicApi.post(`public/events/${event.eventId}/order/${order.orderShortId}/payment-proofs`, {
+      multipart: {
+        proof: {
+          name: 'bank-transfer-receipt.png',
+          mimeType: 'image/png',
+          buffer: readFileSync(fileURLToPath(new URL('../../fixtures/assets/event-cover.png', import.meta.url))),
+        },
+        payment_reference: 'E2E-BANK-TRANSFER',
+      },
+    });
+    expect(submission.ok()).toBeTruthy();
+
+    const orders = new OrderPage(authedPage);
+    await orders.goto(event.eventId);
+    const row = orders.rowByEmail(order.buyerEmail);
+    await expect(row.getByText('Proof awaiting review')).toBeVisible();
+
+    await orders.chooseRowAction(order.buyerEmail, 'Manage order');
+    const drawer = orders.detailsDrawer();
+    await expect(drawer.getByText('bank-transfer-receipt.png')).toBeVisible();
+    await drawer.getByTestId('payment-proof-approve-button').click();
 
     await expect(row.getByText('Completed')).toBeVisible();
   });
