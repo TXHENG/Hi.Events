@@ -9,7 +9,6 @@ set -Eeuo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 BRANCH="${BRANCH:-develop}"
-IMAGE_TAG="${IMAGE_TAG:-hi-events-all-in-one:latest}"
 HEALTH_URL="${HEALTH_URL:-http://localhost:8123}"
 COMPOSE_FILE="${COMPOSE_FILE:-${SCRIPT_DIR}/docker-compose.rpi.yml}"
 
@@ -21,6 +20,12 @@ if [[ ! -f "${COMPOSE_FILE}" ]]; then
     echo "Compose file not found: ${COMPOSE_FILE}" >&2
     exit 1
 fi
+
+# Compose generates a build image as <project>-all-in-one when no explicit
+# `image:` field exists. Use that same tag so `up --no-build` starts the image
+# created above. IMAGE_TAG remains available as an override for custom setups.
+COMPOSE_PROJECT_NAME="$(docker compose --file "${COMPOSE_FILE}" config 2>/dev/null | awk '/^name:/ { print $2; exit }')"
+IMAGE_TAG="${IMAGE_TAG:-${COMPOSE_PROJECT_NAME:-all-in-one}-all-in-one:latest}"
 
 echo "Updating ${BRANCH}..."
 git -C "${PROJECT_ROOT}" pull --ff-only origin "${BRANCH}"
