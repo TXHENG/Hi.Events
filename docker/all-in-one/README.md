@@ -67,3 +67,12 @@ Visit [http://localhost:8123/auth/register](http://localhost:8123/auth/register)
 
 **Production Note:**  
 For production, ensure you generate unique `APP_KEY` and `JWT_SECRET` for each environment and never hardcode sensitive values.
+# Raspberry Pi deployment
+
+After the first setup, deploy the current `develop` branch with:
+
+```bash
+./deploy.sh
+```
+
+The script pulls the branch, builds the all-in-one image using host networking, restarts the compose service only after a successful build, and checks `http://localhost:8123`.
