@@ -24,6 +24,17 @@ class OrderPaymentProofRepository extends BaseRepository implements OrderPayment
         ));
     }
 
+    public function findForOrderByIdForUpdate(int $orderId, int $paymentProofId): ?OrderPaymentProofDomainObject
+    {
+        return $this->runQuery(fn () => $this->handleSingleResult(
+            $this->model
+                ->where('order_id', $orderId)
+                ->where('id', $paymentProofId)
+                ->lockForUpdate()
+                ->first(),
+        ));
+    }
+
     public function findForOrder(int $orderId): Collection
     {
         return $this->findWhere(

@@ -21,12 +21,18 @@ class EventResourcePublic extends BaseResource
 {
     private readonly bool $includePostCheckoutData;
 
+    private readonly bool $includePostCheckoutMessage;
+
     public function __construct(
         mixed $resource,
         mixed $includePostCheckoutData = false,
+        mixed $includePostCheckoutMessage = false,
     ) {
         $this->includePostCheckoutData = is_bool($includePostCheckoutData)
             ? $includePostCheckoutData
+            : false;
+        $this->includePostCheckoutMessage = is_bool($includePostCheckoutMessage)
+            ? $includePostCheckoutMessage
             : false;
 
         parent::__construct($resource);
@@ -69,7 +75,8 @@ class EventResourcePublic extends BaseResource
                 condition: ! is_null($this->getEventSettings()),
                 value: fn () => new EventSettingsResourcePublic(
                     $this->getEventSettings(),
-                    $this->includePostCheckoutData
+                    $this->includePostCheckoutData,
+                    $this->includePostCheckoutMessage,
                 ),
             ),
             // @TODO - public question resource

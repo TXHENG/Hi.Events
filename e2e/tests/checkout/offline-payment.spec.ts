@@ -90,7 +90,9 @@ test.describe('offline payment checkout', () => {
     });
     await checkout.chooseOfflinePayment();
 
-    await expect(page.getByText('Awaiting review')).toBeVisible();
-    await expect(page.getByText('bank-transfer-receipt.png')).toBeVisible();
+    await expect(page.getByText('Payment proof submitted')).toBeVisible();
+    await expect(page.getByText('We received your payment proof. You can close this page; the organizer will contact you if anything else is needed.')).toBeVisible();
+    await expect(page.getByRole('heading', {name: 'Payment Instructions'})).toBeHidden();
+    await expect(page.getByText('bank-transfer-receipt.png')).toBeHidden();
   });
 });

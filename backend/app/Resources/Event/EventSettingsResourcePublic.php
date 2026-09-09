@@ -13,6 +13,7 @@ class EventSettingsResourcePublic extends JsonResource
     public function __construct(
         mixed $resource,
         private readonly bool $includePostCheckoutData = false,
+        private readonly bool $includePostCheckoutMessage = false,
     ) {
         parent::__construct($resource);
     }
@@ -22,10 +23,9 @@ class EventSettingsResourcePublic extends JsonResource
         return [
             'pre_checkout_message' => $this->getPreCheckoutMessage(),
 
-            // We only show post checkout data if the order is completed. So this data is only returned when this
-            // resource is returned within the context of an order that is completed.
-            // i.e. order->event->event_settings and not event->event_settings
-            $this->mergeWhen($this->includePostCheckoutData, [
+            // The post-checkout message is safe to show while an offline payment is awaiting review, but other
+            // post-checkout data remains restricted to completed orders.
+            $this->mergeWhen($this->includePostCheckoutData || $this->includePostCheckoutMessage, [
                 'post_checkout_message' => $this->getPostCheckoutMessage(),
             ]),
 

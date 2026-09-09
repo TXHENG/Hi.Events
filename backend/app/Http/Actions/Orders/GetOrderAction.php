@@ -7,6 +7,7 @@ use HiEvents\DomainObjects\EventDomainObject;
 use HiEvents\DomainObjects\EventOccurrenceDomainObject;
 use HiEvents\DomainObjects\Generated\OrderDomainObjectAbstract;
 use HiEvents\DomainObjects\OrderItemDomainObject;
+use HiEvents\DomainObjects\OrderPaymentProofDomainObject;
 use HiEvents\DomainObjects\QuestionAndAnswerViewDomainObject;
 use HiEvents\Exceptions\ResourceNotFoundException;
 use HiEvents\Http\Actions\BaseAction;
@@ -33,6 +34,7 @@ class GetOrderAction extends BaseAction
         $this->isActionAuthorized($eventId, EventDomainObject::class);
 
         $order = $this->orderRepository
+            ->loadRelation(new Relationship(domainObject: OrderPaymentProofDomainObject::class))
             ->loadRelation(new Relationship(
                 domainObject: OrderItemDomainObject::class,
                 nested: [

@@ -19,6 +19,8 @@ class OrderResourcePublic extends BaseResource
     public function toArray(Request $request): array
     {
         $includePostCheckoutData = $this->getStatus() === OrderStatus::COMPLETED->name;
+        $includePostCheckoutMessage = $includePostCheckoutData
+            || $this->getStatus() === OrderStatus::AWAITING_OFFLINE_PAYMENT->name;
 
         return [
             'short_id' => $this->getShortId(),
@@ -32,6 +34,13 @@ class OrderResourcePublic extends BaseResource
             'refund_status' => $this->getRefundStatus(),
             /** @var 'NO_PAYMENT_REQUIRED'|'AWAITING_PAYMENT'|'AWAITING_OFFLINE_PAYMENT'|'PAYMENT_FAILED'|'PAYMENT_RECEIVED'|null */
             'payment_status' => $this->getPaymentStatus(),
+            'payment_proof_status' => $this->when(
+                ! is_null($this->getOrderPaymentProofs()),
+                fn () => $this->getOrderPaymentProofs()
+                    ->first(fn ($proof) => $proof->getStatus() === 'PENDING')
+                    ?->getStatus()
+                    ?? $this->getOrderPaymentProofs()->first()?->getStatus(),
+            ),
             'currency' => $this->getCurrency(),
             'reserved_until' => $this->getReservedUntil(),
             'is_expired' => $this->when(
@@ -50,6 +59,7 @@ class OrderResourcePublic extends BaseResource
                 fn () => new EventResourcePublic(
                     resource: $this->getEvent(),
                     includePostCheckoutData: $includePostCheckoutData,
+                    includePostCheckoutMessage: $includePostCheckoutMessage,
                 ),
             ),
             'latest_invoice' => $this->when(

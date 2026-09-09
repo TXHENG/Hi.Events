@@ -170,6 +170,16 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         ));
     }
 
+    public function findByIdForUpdate(int $orderId): ?OrderDomainObject
+    {
+        return $this->runQuery(fn () => $this->handleSingleResult(
+            $this->model
+                ->where('id', $orderId)
+                ->lockForUpdate()
+                ->first(),
+        ));
+    }
+
     public function getDomainObject(): string
     {
         return OrderDomainObject::class;

@@ -31,4 +31,18 @@ class EventSettingsResourcePublicTest extends TestCase
 
         $this->assertFalse($resource['allow_copy_details_to_all_attendees']);
     }
+
+    public function test_public_resource_can_expose_the_post_checkout_message_without_other_post_checkout_data(): void
+    {
+        $settings = (new EventSettingDomainObject)
+            ->setPostCheckoutMessage('Thanks for sending your payment proof.');
+
+        $resource = (new EventSettingsResourcePublic(
+            resource: $settings,
+            includePostCheckoutData: false,
+            includePostCheckoutMessage: true,
+        ))->resolve(Request::create('/'));
+
+        $this->assertSame('Thanks for sending your payment proof.', $resource['post_checkout_message']);
+    }
 }

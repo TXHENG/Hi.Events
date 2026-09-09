@@ -12,6 +12,8 @@ interface OrderPaymentProofRepositoryInterface extends RepositoryInterface
 {
     public function findPendingForOrder(int $orderId): ?OrderPaymentProofDomainObject;
 
+    public function findForOrderByIdForUpdate(int $orderId, int $paymentProofId): ?OrderPaymentProofDomainObject;
+
     /** @return Collection<OrderPaymentProofDomainObject> */
     public function findForOrder(int $orderId): Collection;
 }

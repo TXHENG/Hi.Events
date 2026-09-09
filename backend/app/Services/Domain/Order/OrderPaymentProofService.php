@@ -5,9 +5,9 @@ namespace HiEvents\Services\Domain\Order;
 use HiEvents\DomainObjects\Enums\OrderPaymentProofStatus;
 use HiEvents\DomainObjects\EventDomainObject;
 use HiEvents\DomainObjects\EventSettingDomainObject;
-use HiEvents\DomainObjects\Generated\OrderDomainObjectAbstract;
 use HiEvents\DomainObjects\OrderDomainObject;
 use HiEvents\DomainObjects\OrderPaymentProofDomainObject;
+use HiEvents\DomainObjects\OrganizerDomainObject;
 use HiEvents\DomainObjects\Status\OrderStatus;
 use HiEvents\Exceptions\ResourceConflictException;
 use HiEvents\Exceptions\ResourceNotFoundException;
@@ -145,9 +145,23 @@ class OrderPaymentProofService
     {
         return $this->databaseManager->transaction(function () use ($eventId, $orderId, $paymentProofId, $reviewerId) {
             $order = $this->getOrderForEventId($eventId, $orderId);
-            $proof = $this->getPendingProof($order, $paymentProofId);
+            $proof = $this->getProofForOrderForUpdate($order->getId(), $paymentProofId);
 
-            $this->markOrderAsPaidService->markOrderAsPaid($orderId, $eventId);
+            // Retrying a successful request is safe. This also makes a stale browser response harmless.
+            if ($proof->getStatus() === OrderPaymentProofStatus::APPROVED->value
+                && $order->getStatus() === OrderStatus::COMPLETED->name) {
+                return $proof;
+            }
+
+            if ($proof->getStatus() !== OrderPaymentProofStatus::PENDING->value) {
+                throw new ResourceConflictException(__('Payment proof is not awaiting review'));
+            }
+
+            if ($order->getStatus() === OrderStatus::AWAITING_OFFLINE_PAYMENT->name) {
+                $this->markOrderAsPaidService->markOrderAsPaid($orderId, $eventId);
+            } elseif ($order->getStatus() !== OrderStatus::COMPLETED->name) {
+                throw new ResourceConflictException(__('Order is not awaiting offline payment'));
+            }
 
             return $this->paymentProofRepository->updateFromArray($proof->getId(), [
                 'status' => OrderPaymentProofStatus::APPROVED->value,
@@ -155,6 +169,36 @@ class OrderPaymentProofService
                 'reviewed_at' => now(),
                 'rejection_reason' => null,
             ]);
+        });
+    }
+
+    /**
+     * Mark an offline order as paid and approve any pending proof in the same transaction.
+     *
+     * @throws Throwable
+     */
+    public function markOrderAsPaid(int $eventId, int $orderId, int $reviewerId): OrderDomainObject
+    {
+        return $this->databaseManager->transaction(function () use ($eventId, $orderId, $reviewerId) {
+            $order = $this->getOrderForEventId($eventId, $orderId);
+
+            if ($order->getStatus() === OrderStatus::AWAITING_OFFLINE_PAYMENT->name) {
+                $order = $this->markOrderAsPaidService->markOrderAsPaid($orderId, $eventId);
+            } elseif ($order->getStatus() !== OrderStatus::COMPLETED->name) {
+                throw new ResourceConflictException(__('Order is not awaiting offline payment'));
+            }
+
+            $pendingProof = $this->paymentProofRepository->findPendingForOrder($orderId);
+            if ($pendingProof !== null) {
+                $this->paymentProofRepository->updateFromArray($pendingProof->getId(), [
+                    'status' => OrderPaymentProofStatus::APPROVED->value,
+                    'reviewed_by_user_id' => $reviewerId,
+                    'reviewed_at' => now(),
+                    'rejection_reason' => null,
+                ]);
+            }
+
+            return $order;
         });
     }
 
@@ -239,12 +283,9 @@ class OrderPaymentProofService
 
     private function getOrderForEventId(int $eventId, int $orderId): OrderDomainObject
     {
-        $order = $this->orderRepository->findFirstWhere([
-            OrderDomainObjectAbstract::ID => $orderId,
-            OrderDomainObjectAbstract::EVENT_ID => $eventId,
-        ]);
+        $order = $this->orderRepository->findByIdForUpdate($orderId);
 
-        if (! $order instanceof OrderDomainObject) {
+        if (! $order instanceof OrderDomainObject || $order->getEventId() !== $eventId) {
             throw new ResourceNotFoundException(__('Order not found'));
         }
 
@@ -276,10 +317,21 @@ class OrderPaymentProofService
         return $proof;
     }
 
+    private function getProofForOrderForUpdate(int $orderId, int $paymentProofId): OrderPaymentProofDomainObject
+    {
+        $proof = $this->paymentProofRepository->findForOrderByIdForUpdate($orderId, $paymentProofId);
+
+        if (! $proof instanceof OrderPaymentProofDomainObject) {
+            throw new ResourceNotFoundException(__('Payment proof not found'));
+        }
+
+        return $proof;
+    }
+
     private function getEventWithPaymentContext(int $eventId): EventDomainObject
     {
         return $this->eventRepository
-            ->loadRelation(new Relationship(\HiEvents\DomainObjects\OrganizerDomainObject::class, name: 'organizer'))
+            ->loadRelation(new Relationship(OrganizerDomainObject::class, name: 'organizer'))
             ->loadRelation(new Relationship(EventSettingDomainObject::class))
             ->findById($eventId);
     }

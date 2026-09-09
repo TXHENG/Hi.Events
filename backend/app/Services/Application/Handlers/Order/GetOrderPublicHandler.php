@@ -15,6 +15,7 @@ use HiEvents\DomainObjects\InvoiceDomainObject;
 use HiEvents\DomainObjects\LocationDomainObject;
 use HiEvents\DomainObjects\OrderDomainObject;
 use HiEvents\DomainObjects\OrderItemDomainObject;
+use HiEvents\DomainObjects\OrderPaymentProofDomainObject;
 use HiEvents\DomainObjects\OrganizerDomainObject;
 use HiEvents\DomainObjects\ProductDomainObject;
 use HiEvents\DomainObjects\ProductPriceDomainObject;
@@ -69,6 +70,7 @@ class GetOrderPublicHandler
     private function getOrderDomainObject(GetOrderPublicDTO $getOrderData): ?OrderDomainObject
     {
         $orderQuery = $this->orderRepository
+            ->loadRelation(new Relationship(domainObject: OrderPaymentProofDomainObject::class))
             ->loadRelation(new Relationship(
                 domainObject: AttendeeDomainObject::class,
                 nested: [
