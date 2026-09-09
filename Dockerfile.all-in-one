@@ -4,8 +4,10 @@ WORKDIR /app/frontend
 
 RUN apk add --no-cache yarn
 
-# Increase network timeout for slow ARM emulation builds
-RUN yarn config set network-timeout 600000
+# Use the npm registry because it is more broadly reachable than Yarn's legacy
+# registry, and allow enough time for slower ARM builds.
+RUN yarn config set registry https://registry.npmjs.org \
+ && yarn config set network-timeout 600000
 
 COPY ./frontend/package.json ./frontend/yarn.lock ./
 
