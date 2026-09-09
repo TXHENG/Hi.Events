@@ -17,7 +17,10 @@ php artisan route:clear
 php artisan view:clear
 php artisan storage:link
 
-chown -R www-data:www-data /app/backend
+# Only Laravel's runtime directories need to be writable by the web and queue
+# processes. Avoid recursively walking the application, dependencies, and any
+# persistent upload volume on every container start.
+chown -R www-data:www-data /app/backend/storage /app/backend/bootstrap/cache
 chmod -R 775 /app/backend/storage /app/backend/bootstrap/cache
 
 exec /usr/bin/supervisord -c /etc/supervisord.conf
