@@ -1021,8 +1021,8 @@ msgid "Allow customers to join a waitlist when this product is sold out. Custome
 msgstr "允许客户在该产品售罄时加入候补名单。客户加入的是特定日期的候补名单。"
 
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
-msgid "Allow payment proof uploads"
-msgstr "Allow payment proof uploads"
+#~ msgid "Allow payment proof uploads"
+#~ msgstr "Allow payment proof uploads"
 
 #: src/components/routes/event/Settings/Sections/SeoSettings/index.tsx:82
 #: src/components/routes/organizer/Settings/Sections/SeoSettings/index.tsx:82
@@ -1231,7 +1231,7 @@ msgstr "应用到所有门票"
 msgid "Approve - Not Spam"
 msgstr "批准 - 不是垃圾内容"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:94
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:142
 msgid "Approve and mark paid"
 msgstr "Approve and mark paid"
 
@@ -1494,6 +1494,10 @@ msgstr "必须选择至少一种事件类型"
 #: src/components/routes/event/OccurrencesTab/PriceOverrideForm/index.tsx:117
 msgid "At least one product must stay available for this date. To make the date inaccessible, cancel it from the schedule instead."
 msgstr "该日期至少要保留一个可售产品。若要让该日期不可访问，请改为在排期中取消它。"
+
+#: src/components/routes/product-widget/Payment/index.tsx:141
+msgid "Attach your bank-transfer receipt or payment confirmation before paying. The organizer will review it before marking your order as paid."
+msgstr ""
 
 #: src/components/routes/organizer/Payments/Vat/VatSettingsForm.tsx:96
 msgid "Attempts"
@@ -1898,7 +1902,7 @@ msgid "By adding tracking pixels, you acknowledge that you and this platform are
 msgstr "通过添加跟踪像素，您确认您和本平台是所收集数据的共同控制者。您有责任确保根据适用的隐私法律（GDPR、CCPA等）拥有合法的处理依据。"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:761
-#: src/components/routes/product-widget/Payment/index.tsx:157
+#: src/components/routes/product-widget/Payment/index.tsx:209
 msgid "By continuing, you agree to the <0>{0} Terms of Service</0>"
 msgstr "继续操作即表示您同意<0>{0}服务条款</0>"
 
@@ -2348,6 +2352,7 @@ msgid "Choose a different action"
 msgstr "选择其他操作"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:67
+#: src/components/routes/product-widget/Payment/index.tsx:146
 msgid "Choose a file"
 msgstr "Choose a file"
 
@@ -2552,7 +2557,7 @@ msgid "Complete Order"
 msgstr "完整订单"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:370
-#: src/components/routes/product-widget/Payment/index.tsx:153
+#: src/components/routes/product-widget/Payment/index.tsx:205
 msgid "Complete Payment"
 msgstr "完成付款"
 
@@ -3837,7 +3842,8 @@ msgstr "完成"
 msgid "Door staff instructions"
 msgstr "入场工作人员须知"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:75
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:122
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:166
 msgid "Download"
 msgstr "Download"
 
@@ -6173,6 +6179,7 @@ msgid "Joined"
 msgstr "已加入"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:66
+#: src/components/routes/product-widget/Payment/index.tsx:145
 msgid "JPG, PNG, or PDF up to 10 MB"
 msgstr "JPG, PNG, or PDF up to 10 MB"
 
@@ -6367,8 +6374,8 @@ msgid "Leave on to cover every ticket on the event. Turn off to pick specific ti
 msgstr "保持开启即可覆盖活动的所有门票；关闭后可选择特定门票。"
 
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
-msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
-msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+#~ msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+#~ msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
 
 #: src/components/routes/event/OccurrencesTab/OccurrenceEditModal/index.tsx:300
 msgid "Let them know about the change"
@@ -6425,6 +6432,10 @@ msgstr "实时预览"
 #: src/components/routes/event/OccurrencesTab/OccurrenceBulkEditModal/index.tsx:345
 msgid "Loaded dates"
 msgstr "已加载的日期"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:177
+msgid "Loading preview"
+msgstr ""
 
 #: src/components/routes/event/TicketDesigner/TicketPreview.tsx:33
 msgid "Loading preview..."
@@ -6986,7 +6997,7 @@ msgid "Next: payment"
 msgstr "下一步：付款"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:437
-#: src/components/routes/product-widget/Payment/index.tsx:98
+#: src/components/routes/product-widget/Payment/index.tsx:122
 msgid "Next: review your order"
 msgstr "下一步：核对订单"
 
@@ -7248,7 +7259,7 @@ msgstr "无付费订单"
 msgid "No past events"
 msgstr "没有过去的活动"
 
-#: src/components/routes/product-widget/Payment/index.tsx:89
+#: src/components/routes/product-widget/Payment/index.tsx:113
 msgid "No payment methods are currently available. Please contact the event organizer for assistance."
 msgstr "当前没有可用的支付方式。请联系活动组织者以获取帮助。"
 
@@ -7541,7 +7552,7 @@ msgstr "报价将在 {timeoutHours} 小时后过期。"
 #: src/components/common/OrdersTable/index.tsx:301
 #: src/components/layouts/CheckIn/index.tsx:573
 #: src/components/layouts/CheckIn/index.tsx:575
-#: src/components/routes/product-widget/Payment/index.tsx:135
+#: src/components/routes/product-widget/Payment/index.tsx:186
 msgid "Offline"
 msgstr "离线"
 
@@ -7549,7 +7560,7 @@ msgstr "离线"
 msgid "Offline orders are not reflected in event statistics until the order is marked as paid."
 msgstr "线下订单在标记为已支付之前不会反映在活动统计中。"
 
-#: src/components/routes/product-widget/Payment/index.tsx:79
+#: src/components/routes/product-widget/Payment/index.tsx:102
 msgid "Offline payment failed. Please try again or contact the event organizer."
 msgstr "线下支付失败。请重试或联系活动组织者。"
 
@@ -7631,7 +7642,7 @@ msgstr "持续进行"
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:122
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:248
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:346
-#: src/components/routes/product-widget/Payment/index.tsx:127
+#: src/components/routes/product-widget/Payment/index.tsx:178
 msgid "Online"
 msgstr "在线"
 
@@ -7753,6 +7764,7 @@ msgid "Optional additional information to appear on all invoices (e.g., payment 
 msgstr "所有发票上显示的可选附加信息（例如，付款条款、逾期付款费用、退货政策）"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:75
+#: src/components/routes/product-widget/Payment/index.tsx:156
 msgid "Optional bank transfer or transaction reference"
 msgstr "Optional bank transfer or transaction reference"
 
@@ -8246,7 +8258,7 @@ msgstr "patrick@acme.com"
 msgid "Paused"
 msgstr "已暂停"
 
-#: src/components/routes/product-widget/Payment/index.tsx:151
+#: src/components/routes/product-widget/Payment/index.tsx:203
 msgid "Pay"
 msgstr "付款"
 
@@ -8261,7 +8273,7 @@ msgstr "负载数据"
 
 #: src/components/common/OrdersTable/index.tsx:286
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/routes/product-widget/Payment/index.tsx:98
+#: src/components/routes/product-widget/Payment/index.tsx:122
 msgid "Payment"
 msgstr "付款方式"
 
@@ -8291,7 +8303,7 @@ msgstr "付款失败"
 msgid "Payment Instructions"
 msgstr "支付说明"
 
-#: src/components/routes/product-widget/Payment/index.tsx:118
+#: src/components/routes/product-widget/Payment/index.tsx:169
 msgid "Payment method"
 msgstr "付款方式"
 
@@ -8304,13 +8316,21 @@ msgstr "支付方式"
 msgid "Payment Proof"
 msgstr "Payment Proof"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:32
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:36
 msgid "Payment proof approved"
 msgstr "Payment proof approved"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:41
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:160
+msgid "Payment proof preview"
+msgstr ""
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:45
 msgid "Payment proof rejected"
 msgstr "Payment proof rejected"
+
+#: src/components/routes/product-widget/Payment/index.tsx:139
+msgid "Payment proof required"
+msgstr ""
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:39
 msgid "Payment proof submitted for review"
@@ -8322,8 +8342,17 @@ msgid "Payment provider"
 msgstr "支付提供商"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:65
+#: src/components/routes/product-widget/Payment/index.tsx:144
 msgid "Payment receipt"
 msgstr "Payment receipt"
+
+#: src/components/routes/product-widget/Payment/index.tsx:45
+msgid "Payment receipt must be 10 MB or smaller"
+msgstr ""
+
+#: src/components/routes/product-widget/Payment/index.tsx:49
+msgid "Payment receipt must be a JPG, PNG, or PDF"
+msgstr ""
 
 #: src/components/forms/StripeCheckoutForm/index.tsx:130
 msgid "Payment received"
@@ -8335,6 +8364,7 @@ msgid "Payment Received"
 msgstr "已收到付款"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:74
+#: src/components/routes/product-widget/Payment/index.tsx:155
 msgid "Payment reference"
 msgstr "Payment reference"
 
@@ -8677,6 +8707,7 @@ msgid "Prevent overselling by sharing inventory across multiple ticket types."
 msgstr "通过在多种门票类型之间共享库存来防止超卖。"
 
 #: src/components/common/EmailTemplateEditor/EmailTemplateEditor.tsx:143
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:119
 #: src/components/routes/admin/Announcements/index.tsx:495
 #: src/components/routes/event/TicketDesigner/index.tsx:216
 msgid "Preview"
@@ -8690,6 +8721,10 @@ msgstr "预览结账表单"
 #: src/components/layouts/Event/index.tsx:287
 msgid "Preview Event page"
 msgstr "预览活动页面"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:171
+msgid "Preview unavailable. Download the receipt instead."
+msgstr ""
 
 #: src/components/routes/event/OccurrencesTab/RecurrenceScheduleDrawer/index.tsx:420
 msgid "Previous month"
@@ -9084,7 +9119,7 @@ msgstr "准备好发布了吗？"
 msgid "Real-time analytics"
 msgstr "实时数据分析"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:72
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:110
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:59
 msgid "Reason"
 msgstr "Reason"
@@ -9185,7 +9220,7 @@ msgstr "Reddit"
 msgid "Redirecting to Stripe..."
 msgstr "正在重定向到 Stripe..."
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:71
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:109
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:58
 msgid "Reference"
 msgstr "Reference"
@@ -9281,7 +9316,7 @@ msgstr "注册问题"
 msgid "Reject all"
 msgstr "全部拒绝"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:105
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:153
 msgid "Reject proof"
 msgstr "Reject proof"
 
@@ -9289,7 +9324,7 @@ msgstr "Reject proof"
 msgid "Rejected"
 msgstr "Rejected"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:81
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:129
 msgid "Rejection reason"
 msgstr "Rejection reason"
 
@@ -9365,6 +9400,14 @@ msgstr "请求人"
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:188
 msgid "Require Billing Address"
 msgstr "要求账单地址"
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
+msgid "Require customers to attach a receipt before paying offline. You can preview, approve, or reject it from the order page."
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
+msgid "Require payment proof for offline payments"
+msgstr ""
 
 #: src/components/common/QuestionsTable/index.tsx:118
 msgid "Required"
@@ -10120,6 +10163,10 @@ msgstr "已选"
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:136
 msgid "Selected"
 msgstr "已选择"
+
+#: src/components/routes/product-widget/Payment/index.tsx:153
+msgid "Selected file"
+msgstr ""
 
 #: src/components/layouts/AuthLayout/index.tsx:42
 msgid "Sell out your event."
@@ -12122,7 +12169,7 @@ msgstr "输入以搜索..."
 msgid "Typography"
 msgstr "排版"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:34
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:38
 msgid "Unable to approve payment proof"
 msgstr "Unable to approve payment proof"
 
@@ -12147,7 +12194,7 @@ msgstr "无法创建产品。请检查您的详细信息"
 msgid "Unable to create question. Please check the your details"
 msgstr "无法创建问题。请检查您的详细信息"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:55
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:59
 msgid "Unable to download payment proof"
 msgstr "Unable to download payment proof"
 
@@ -12171,7 +12218,7 @@ msgstr "无法加载参与者详情。"
 msgid "Unable to load products for this date. Please try again."
 msgstr "无法加载该日期的产品，请重试。"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:43
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:47
 msgid "Unable to reject payment proof"
 msgstr "Unable to reject payment proof"
 

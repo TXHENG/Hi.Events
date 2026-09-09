@@ -1021,8 +1021,8 @@ msgid "Allow customers to join a waitlist when this product is sold out. Custome
 msgstr "Permettre aux clients de rejoindre une liste d'attente lorsque ce produit est épuisé. Les clients rejoignent la liste d'attente pour une date spécifique."
 
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
-msgid "Allow payment proof uploads"
-msgstr "Allow payment proof uploads"
+#~ msgid "Allow payment proof uploads"
+#~ msgstr "Allow payment proof uploads"
 
 #: src/components/routes/event/Settings/Sections/SeoSettings/index.tsx:82
 #: src/components/routes/organizer/Settings/Sections/SeoSettings/index.tsx:82
@@ -1231,7 +1231,7 @@ msgstr "Appliquer à tous les billets"
 msgid "Approve - Not Spam"
 msgstr "Approuver - Pas du spam"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:94
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:142
 msgid "Approve and mark paid"
 msgstr "Approve and mark paid"
 
@@ -1494,6 +1494,10 @@ msgstr "Au moins un type d'événement doit être sélectionné"
 #: src/components/routes/event/OccurrencesTab/PriceOverrideForm/index.tsx:117
 msgid "At least one product must stay available for this date. To make the date inaccessible, cancel it from the schedule instead."
 msgstr "Au moins un produit doit rester disponible pour cette date. Pour rendre la date inaccessible, annulez-la plutôt depuis le planning."
+
+#: src/components/routes/product-widget/Payment/index.tsx:141
+msgid "Attach your bank-transfer receipt or payment confirmation before paying. The organizer will review it before marking your order as paid."
+msgstr ""
 
 #: src/components/routes/organizer/Payments/Vat/VatSettingsForm.tsx:96
 msgid "Attempts"
@@ -1898,7 +1902,7 @@ msgid "By adding tracking pixels, you acknowledge that you and this platform are
 msgstr "En ajoutant des pixels de suivi, vous reconnaissez que vous et cette plateforme êtes responsables conjoints des données collectées. Vous êtes responsable de vous assurer que vous disposez d'une base légale pour ce traitement en vertu des lois applicables sur la protection des données (RGPD, CCPA, etc.)."
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:761
-#: src/components/routes/product-widget/Payment/index.tsx:157
+#: src/components/routes/product-widget/Payment/index.tsx:209
 msgid "By continuing, you agree to the <0>{0} Terms of Service</0>"
 msgstr "En continuant, vous acceptez les <0>Conditions d'utilisation de {0}</0>"
 
@@ -2348,6 +2352,7 @@ msgid "Choose a different action"
 msgstr "Choisir une autre action"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:67
+#: src/components/routes/product-widget/Payment/index.tsx:146
 msgid "Choose a file"
 msgstr "Choose a file"
 
@@ -2552,7 +2557,7 @@ msgid "Complete Order"
 msgstr "Complétez la commande"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:370
-#: src/components/routes/product-widget/Payment/index.tsx:153
+#: src/components/routes/product-widget/Payment/index.tsx:205
 msgid "Complete Payment"
 msgstr "Paiement complet"
 
@@ -3837,7 +3842,8 @@ msgstr "Terminé"
 msgid "Door staff instructions"
 msgstr "Consignes pour le personnel d'accueil"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:75
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:122
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:166
 msgid "Download"
 msgstr "Download"
 
@@ -6173,6 +6179,7 @@ msgid "Joined"
 msgstr "Inscrit"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:66
+#: src/components/routes/product-widget/Payment/index.tsx:145
 msgid "JPG, PNG, or PDF up to 10 MB"
 msgstr "JPG, PNG, or PDF up to 10 MB"
 
@@ -6367,8 +6374,8 @@ msgid "Leave on to cover every ticket on the event. Turn off to pick specific ti
 msgstr "Laissez activé pour couvrir tous les billets de l'événement. Désactivez pour choisir des billets précis."
 
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
-msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
-msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+#~ msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+#~ msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
 
 #: src/components/routes/event/OccurrencesTab/OccurrenceEditModal/index.tsx:300
 msgid "Let them know about the change"
@@ -6425,6 +6432,10 @@ msgstr "Aperçu en direct"
 #: src/components/routes/event/OccurrencesTab/OccurrenceBulkEditModal/index.tsx:345
 msgid "Loaded dates"
 msgstr "Dates chargées"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:177
+msgid "Loading preview"
+msgstr ""
 
 #: src/components/routes/event/TicketDesigner/TicketPreview.tsx:33
 msgid "Loading preview..."
@@ -6986,7 +6997,7 @@ msgid "Next: payment"
 msgstr "Ensuite : paiement"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:437
-#: src/components/routes/product-widget/Payment/index.tsx:98
+#: src/components/routes/product-widget/Payment/index.tsx:122
 msgid "Next: review your order"
 msgstr "Ensuite : vérifier votre commande"
 
@@ -7248,7 +7259,7 @@ msgstr "Aucune commande payée"
 msgid "No past events"
 msgstr "Aucun événement passé"
 
-#: src/components/routes/product-widget/Payment/index.tsx:89
+#: src/components/routes/product-widget/Payment/index.tsx:113
 msgid "No payment methods are currently available. Please contact the event organizer for assistance."
 msgstr "Aucune méthode de paiement n'est actuellement disponible. Veuillez contacter l'organisateur de l'événement pour obtenir de l'aide."
 
@@ -7541,7 +7552,7 @@ msgstr "Les offres expirent après {timeoutHours} heures."
 #: src/components/common/OrdersTable/index.tsx:301
 #: src/components/layouts/CheckIn/index.tsx:573
 #: src/components/layouts/CheckIn/index.tsx:575
-#: src/components/routes/product-widget/Payment/index.tsx:135
+#: src/components/routes/product-widget/Payment/index.tsx:186
 msgid "Offline"
 msgstr "Hors ligne"
 
@@ -7549,7 +7560,7 @@ msgstr "Hors ligne"
 msgid "Offline orders are not reflected in event statistics until the order is marked as paid."
 msgstr "Les commandes hors ligne ne sont pas reflétées dans les statistiques de l'événement tant que la commande n'est pas marquée comme payée."
 
-#: src/components/routes/product-widget/Payment/index.tsx:79
+#: src/components/routes/product-widget/Payment/index.tsx:102
 msgid "Offline payment failed. Please try again or contact the event organizer."
 msgstr "Le paiement hors ligne a échoué. Veuillez réessayer ou contacter l'organisateur de l'événement."
 
@@ -7631,7 +7642,7 @@ msgstr "En cours"
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:122
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:248
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:346
-#: src/components/routes/product-widget/Payment/index.tsx:127
+#: src/components/routes/product-widget/Payment/index.tsx:178
 msgid "Online"
 msgstr "En ligne"
 
@@ -7753,6 +7764,7 @@ msgid "Optional additional information to appear on all invoices (e.g., payment 
 msgstr "Informations supplémentaires optionnelles à apparaître sur toutes les factures (par exemple, conditions de paiement, frais de retard, politique de retour)"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:75
+#: src/components/routes/product-widget/Payment/index.tsx:156
 msgid "Optional bank transfer or transaction reference"
 msgstr "Optional bank transfer or transaction reference"
 
@@ -8246,7 +8258,7 @@ msgstr "patrick@acme.com"
 msgid "Paused"
 msgstr "En pause"
 
-#: src/components/routes/product-widget/Payment/index.tsx:151
+#: src/components/routes/product-widget/Payment/index.tsx:203
 msgid "Pay"
 msgstr "Payer"
 
@@ -8261,7 +8273,7 @@ msgstr "Charge utile"
 
 #: src/components/common/OrdersTable/index.tsx:286
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/routes/product-widget/Payment/index.tsx:98
+#: src/components/routes/product-widget/Payment/index.tsx:122
 msgid "Payment"
 msgstr "Paiement"
 
@@ -8291,7 +8303,7 @@ msgstr "Paiement échoué"
 msgid "Payment Instructions"
 msgstr "Instructions de paiement"
 
-#: src/components/routes/product-widget/Payment/index.tsx:118
+#: src/components/routes/product-widget/Payment/index.tsx:169
 msgid "Payment method"
 msgstr "Mode de paiement"
 
@@ -8304,13 +8316,21 @@ msgstr "Méthodes de paiement"
 msgid "Payment Proof"
 msgstr "Payment Proof"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:32
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:36
 msgid "Payment proof approved"
 msgstr "Payment proof approved"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:41
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:160
+msgid "Payment proof preview"
+msgstr ""
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:45
 msgid "Payment proof rejected"
 msgstr "Payment proof rejected"
+
+#: src/components/routes/product-widget/Payment/index.tsx:139
+msgid "Payment proof required"
+msgstr ""
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:39
 msgid "Payment proof submitted for review"
@@ -8322,8 +8342,17 @@ msgid "Payment provider"
 msgstr "Fournisseur de paiement"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:65
+#: src/components/routes/product-widget/Payment/index.tsx:144
 msgid "Payment receipt"
 msgstr "Payment receipt"
+
+#: src/components/routes/product-widget/Payment/index.tsx:45
+msgid "Payment receipt must be 10 MB or smaller"
+msgstr ""
+
+#: src/components/routes/product-widget/Payment/index.tsx:49
+msgid "Payment receipt must be a JPG, PNG, or PDF"
+msgstr ""
 
 #: src/components/forms/StripeCheckoutForm/index.tsx:130
 msgid "Payment received"
@@ -8335,6 +8364,7 @@ msgid "Payment Received"
 msgstr "Paiement reçu"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:74
+#: src/components/routes/product-widget/Payment/index.tsx:155
 msgid "Payment reference"
 msgstr "Payment reference"
 
@@ -8677,6 +8707,7 @@ msgid "Prevent overselling by sharing inventory across multiple ticket types."
 msgstr "Évitez la survente en partageant l'inventaire entre plusieurs types de billets."
 
 #: src/components/common/EmailTemplateEditor/EmailTemplateEditor.tsx:143
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:119
 #: src/components/routes/admin/Announcements/index.tsx:495
 #: src/components/routes/event/TicketDesigner/index.tsx:216
 msgid "Preview"
@@ -8690,6 +8721,10 @@ msgstr "Aperçu du formulaire de paiement"
 #: src/components/layouts/Event/index.tsx:287
 msgid "Preview Event page"
 msgstr "Aperçu de la page de l’événement"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:171
+msgid "Preview unavailable. Download the receipt instead."
+msgstr ""
 
 #: src/components/routes/event/OccurrencesTab/RecurrenceScheduleDrawer/index.tsx:420
 msgid "Previous month"
@@ -9084,7 +9119,7 @@ msgstr "Prêt à passer en ligne ?"
 msgid "Real-time analytics"
 msgstr "Analyses en temps réel"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:72
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:110
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:59
 msgid "Reason"
 msgstr "Reason"
@@ -9185,7 +9220,7 @@ msgstr "Reddit"
 msgid "Redirecting to Stripe..."
 msgstr "Redirection vers Stripe..."
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:71
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:109
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:58
 msgid "Reference"
 msgstr "Reference"
@@ -9281,7 +9316,7 @@ msgstr "Questions d'inscription"
 msgid "Reject all"
 msgstr "Tout refuser"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:105
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:153
 msgid "Reject proof"
 msgstr "Reject proof"
 
@@ -9289,7 +9324,7 @@ msgstr "Reject proof"
 msgid "Rejected"
 msgstr "Rejected"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:81
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:129
 msgid "Rejection reason"
 msgstr "Rejection reason"
 
@@ -9365,6 +9400,14 @@ msgstr "Demandé par"
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:188
 msgid "Require Billing Address"
 msgstr "Adresse de facturation requise"
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
+msgid "Require customers to attach a receipt before paying offline. You can preview, approve, or reject it from the order page."
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
+msgid "Require payment proof for offline payments"
+msgstr ""
 
 #: src/components/common/QuestionsTable/index.tsx:118
 msgid "Required"
@@ -10120,6 +10163,10 @@ msgstr "sélectionné"
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:136
 msgid "Selected"
 msgstr "Sélectionné"
+
+#: src/components/routes/product-widget/Payment/index.tsx:153
+msgid "Selected file"
+msgstr ""
 
 #: src/components/layouts/AuthLayout/index.tsx:42
 msgid "Sell out your event."
@@ -12122,7 +12169,7 @@ msgstr "Tapez pour rechercher..."
 msgid "Typography"
 msgstr "Typographie"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:34
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:38
 msgid "Unable to approve payment proof"
 msgstr "Unable to approve payment proof"
 
@@ -12147,7 +12194,7 @@ msgstr "Impossible de créer le produit. Veuillez vérifier vos détails"
 msgid "Unable to create question. Please check the your details"
 msgstr "Impossible de créer une question. Veuillez vérifier vos coordonnées"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:55
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:59
 msgid "Unable to download payment proof"
 msgstr "Unable to download payment proof"
 
@@ -12171,7 +12218,7 @@ msgstr "Impossible de charger les détails du participant."
 msgid "Unable to load products for this date. Please try again."
 msgstr "Impossible de charger les produits pour cette date. Veuillez réessayer."
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:43
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:47
 msgid "Unable to reject payment proof"
 msgstr "Unable to reject payment proof"
 

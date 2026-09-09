@@ -166,8 +166,8 @@ export const PaymentAndInvoicingSettings = () => {
                                         }
                                     />
                                     <Switch
-                                        label={t`Allow payment proof uploads`}
-                                        description={t`Let customers upload a receipt for an offline payment. You can approve or reject it from the order page.`}
+                                        label={t`Require payment proof for offline payments`}
+                                        description={t`Require customers to attach a receipt before paying offline. You can preview, approve, or reject it from the order page.`}
                                         checked={form.values.allow_offline_payment_proof}
                                         {...form.getInputProps('allow_offline_payment_proof', {type: 'checkbox'})}
                                         mb="md"

@@ -1021,8 +1021,8 @@ msgid "Allow customers to join a waitlist when this product is sold out. Custome
 msgstr "Cho phép khách hàng tham gia danh sách chờ khi sản phẩm này đã hết. Khách hàng tham gia danh sách chờ cho một ngày cụ thể."
 
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
-msgid "Allow payment proof uploads"
-msgstr "Allow payment proof uploads"
+#~ msgid "Allow payment proof uploads"
+#~ msgstr "Allow payment proof uploads"
 
 #: src/components/routes/event/Settings/Sections/SeoSettings/index.tsx:82
 #: src/components/routes/organizer/Settings/Sections/SeoSettings/index.tsx:82
@@ -1231,7 +1231,7 @@ msgstr "Áp dụng cho tất cả vé"
 msgid "Approve - Not Spam"
 msgstr "Phê duyệt - Không phải spam"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:94
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:142
 msgid "Approve and mark paid"
 msgstr "Approve and mark paid"
 
@@ -1494,6 +1494,10 @@ msgstr "Ít nhất một loại sự kiện phải được chọn"
 #: src/components/routes/event/OccurrencesTab/PriceOverrideForm/index.tsx:117
 msgid "At least one product must stay available for this date. To make the date inaccessible, cancel it from the schedule instead."
 msgstr "Ít nhất một sản phẩm phải còn khả dụng cho ngày này. Nếu muốn ngày này không truy cập được, hãy hủy nó trong lịch."
+
+#: src/components/routes/product-widget/Payment/index.tsx:141
+msgid "Attach your bank-transfer receipt or payment confirmation before paying. The organizer will review it before marking your order as paid."
+msgstr ""
 
 #: src/components/routes/organizer/Payments/Vat/VatSettingsForm.tsx:96
 msgid "Attempts"
@@ -1898,7 +1902,7 @@ msgid "By adding tracking pixels, you acknowledge that you and this platform are
 msgstr "Bằng việc thêm pixel theo dõi, bạn thừa nhận rằng bạn và nền tảng này là đồng kiểm soát viên dữ liệu thu thập được. Bạn chịu trách nhiệm đảm bảo có cơ sở pháp lý cho việc xử lý này theo luật bảo mật hiện hành (GDPR, CCPA, v.v.)."
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:761
-#: src/components/routes/product-widget/Payment/index.tsx:157
+#: src/components/routes/product-widget/Payment/index.tsx:209
 msgid "By continuing, you agree to the <0>{0} Terms of Service</0>"
 msgstr "Bằng cách tiếp tục, bạn đồng ý với <0>Điều khoản dịch vụ của {0}</0>"
 
@@ -2348,6 +2352,7 @@ msgid "Choose a different action"
 msgstr "Chọn hành động khác"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:67
+#: src/components/routes/product-widget/Payment/index.tsx:146
 msgid "Choose a file"
 msgstr "Choose a file"
 
@@ -2552,7 +2557,7 @@ msgid "Complete Order"
 msgstr "Hoàn tất đơn hàng"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:370
-#: src/components/routes/product-widget/Payment/index.tsx:153
+#: src/components/routes/product-widget/Payment/index.tsx:205
 msgid "Complete Payment"
 msgstr "Hoàn tất thanh toán"
 
@@ -3837,7 +3842,8 @@ msgstr "Xong"
 msgid "Door staff instructions"
 msgstr "Hướng dẫn cho nhân viên cửa"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:75
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:122
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:166
 msgid "Download"
 msgstr "Download"
 
@@ -6173,6 +6179,7 @@ msgid "Joined"
 msgstr "Đã tham gia"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:66
+#: src/components/routes/product-widget/Payment/index.tsx:145
 msgid "JPG, PNG, or PDF up to 10 MB"
 msgstr "JPG, PNG, or PDF up to 10 MB"
 
@@ -6367,8 +6374,8 @@ msgid "Leave on to cover every ticket on the event. Turn off to pick specific ti
 msgstr "Để bật để bao gồm mọi vé của sự kiện. Tắt để chọn từng vé cụ thể."
 
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
-msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
-msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+#~ msgid "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
+#~ msgstr "Let customers upload a receipt for an offline payment. You can approve or reject it from the order page."
 
 #: src/components/routes/event/OccurrencesTab/OccurrenceEditModal/index.tsx:300
 msgid "Let them know about the change"
@@ -6425,6 +6432,10 @@ msgstr "Xem trước trực tiếp"
 #: src/components/routes/event/OccurrencesTab/OccurrenceBulkEditModal/index.tsx:345
 msgid "Loaded dates"
 msgstr "Ngày đã tải"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:177
+msgid "Loading preview"
+msgstr ""
 
 #: src/components/routes/event/TicketDesigner/TicketPreview.tsx:33
 msgid "Loading preview..."
@@ -6986,7 +6997,7 @@ msgid "Next: payment"
 msgstr "Tiếp theo: thanh toán"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:437
-#: src/components/routes/product-widget/Payment/index.tsx:98
+#: src/components/routes/product-widget/Payment/index.tsx:122
 msgid "Next: review your order"
 msgstr "Tiếp theo: xem lại đơn hàng"
 
@@ -7248,7 +7259,7 @@ msgstr "Không có đơn hàng đã thanh toán"
 msgid "No past events"
 msgstr "Không có sự kiện trước đó"
 
-#: src/components/routes/product-widget/Payment/index.tsx:89
+#: src/components/routes/product-widget/Payment/index.tsx:113
 msgid "No payment methods are currently available. Please contact the event organizer for assistance."
 msgstr "Hiện không có phương thức thanh toán. Vui lòng liên hệ ban tổ chức sự kiện để được hỗ trợ."
 
@@ -7541,7 +7552,7 @@ msgstr "Đề nghị hết hạn sau {timeoutHours} giờ."
 #: src/components/common/OrdersTable/index.tsx:301
 #: src/components/layouts/CheckIn/index.tsx:573
 #: src/components/layouts/CheckIn/index.tsx:575
-#: src/components/routes/product-widget/Payment/index.tsx:135
+#: src/components/routes/product-widget/Payment/index.tsx:186
 msgid "Offline"
 msgstr "Ngoại tuyến"
 
@@ -7549,7 +7560,7 @@ msgstr "Ngoại tuyến"
 msgid "Offline orders are not reflected in event statistics until the order is marked as paid."
 msgstr "Các đơn hàng ngoại tuyến không được phản ánh trong thống kê sự kiện cho đến khi đơn hàng được đánh dấu là được thanh toán."
 
-#: src/components/routes/product-widget/Payment/index.tsx:79
+#: src/components/routes/product-widget/Payment/index.tsx:102
 msgid "Offline payment failed. Please try again or contact the event organizer."
 msgstr "Thanh toán offline không thành công. Vui lòng thử loại hoặc liên hệ với ban tổ chức sự kiện."
 
@@ -7631,7 +7642,7 @@ msgstr "Đang diễn ra"
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:122
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:248
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:346
-#: src/components/routes/product-widget/Payment/index.tsx:127
+#: src/components/routes/product-widget/Payment/index.tsx:178
 msgid "Online"
 msgstr "Trực tuyến"
 
@@ -7753,6 +7764,7 @@ msgid "Optional additional information to appear on all invoices (e.g., payment 
 msgstr "Thông tin bổ sung tùy chọn xuất hiện trên tất cả các hóa đơn (ví dụ: điều khoản thanh toán, phí thanh toán trễ, chính sách trả lại)"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:75
+#: src/components/routes/product-widget/Payment/index.tsx:156
 msgid "Optional bank transfer or transaction reference"
 msgstr "Optional bank transfer or transaction reference"
 
@@ -8246,7 +8258,7 @@ msgstr "patrick@acme.com"
 msgid "Paused"
 msgstr "Tạm dừng"
 
-#: src/components/routes/product-widget/Payment/index.tsx:151
+#: src/components/routes/product-widget/Payment/index.tsx:203
 msgid "Pay"
 msgstr "Thanh toán"
 
@@ -8261,7 +8273,7 @@ msgstr "Tải trọng"
 
 #: src/components/common/OrdersTable/index.tsx:286
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/routes/product-widget/Payment/index.tsx:98
+#: src/components/routes/product-widget/Payment/index.tsx:122
 msgid "Payment"
 msgstr "Thanh toán"
 
@@ -8291,7 +8303,7 @@ msgstr "Thanh toán thất bại"
 msgid "Payment Instructions"
 msgstr "Hướng dẫn thanh toán"
 
-#: src/components/routes/product-widget/Payment/index.tsx:118
+#: src/components/routes/product-widget/Payment/index.tsx:169
 msgid "Payment method"
 msgstr "Phương thức thanh toán"
 
@@ -8304,13 +8316,21 @@ msgstr "Phương thức thanh toán"
 msgid "Payment Proof"
 msgstr "Payment Proof"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:32
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:36
 msgid "Payment proof approved"
 msgstr "Payment proof approved"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:41
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:160
+msgid "Payment proof preview"
+msgstr ""
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:45
 msgid "Payment proof rejected"
 msgstr "Payment proof rejected"
+
+#: src/components/routes/product-widget/Payment/index.tsx:139
+msgid "Payment proof required"
+msgstr ""
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:39
 msgid "Payment proof submitted for review"
@@ -8322,8 +8342,17 @@ msgid "Payment provider"
 msgstr "Nhà cung cấp Thanh toán"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:65
+#: src/components/routes/product-widget/Payment/index.tsx:144
 msgid "Payment receipt"
 msgstr "Payment receipt"
+
+#: src/components/routes/product-widget/Payment/index.tsx:45
+msgid "Payment receipt must be 10 MB or smaller"
+msgstr ""
+
+#: src/components/routes/product-widget/Payment/index.tsx:49
+msgid "Payment receipt must be a JPG, PNG, or PDF"
+msgstr ""
 
 #: src/components/forms/StripeCheckoutForm/index.tsx:130
 msgid "Payment received"
@@ -8335,6 +8364,7 @@ msgid "Payment Received"
 msgstr "Thanh toán đã nhận"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:74
+#: src/components/routes/product-widget/Payment/index.tsx:155
 msgid "Payment reference"
 msgstr "Payment reference"
 
@@ -8677,6 +8707,7 @@ msgid "Prevent overselling by sharing inventory across multiple ticket types."
 msgstr "Ngăn bán quá số lượng bằng cách chia sẻ tồn kho giữa nhiều loại vé."
 
 #: src/components/common/EmailTemplateEditor/EmailTemplateEditor.tsx:143
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:119
 #: src/components/routes/admin/Announcements/index.tsx:495
 #: src/components/routes/event/TicketDesigner/index.tsx:216
 msgid "Preview"
@@ -8690,6 +8721,10 @@ msgstr "Xem trước biểu mẫu thanh toán"
 #: src/components/layouts/Event/index.tsx:287
 msgid "Preview Event page"
 msgstr "Xem trước trang sự kiện"
+
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:171
+msgid "Preview unavailable. Download the receipt instead."
+msgstr ""
 
 #: src/components/routes/event/OccurrencesTab/RecurrenceScheduleDrawer/index.tsx:420
 msgid "Previous month"
@@ -9084,7 +9119,7 @@ msgstr "Sẵn sàng xuất bản?"
 msgid "Real-time analytics"
 msgstr "Phân tích thời gian thực"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:72
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:110
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:59
 msgid "Reason"
 msgstr "Reason"
@@ -9185,7 +9220,7 @@ msgstr "Reddit"
 msgid "Redirecting to Stripe..."
 msgstr "Đang chuyển hướng đến Stripe..."
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:71
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:109
 #: src/components/routes/product-widget/OrderSummaryAndProducts/OfflinePaymentProofUpload.tsx:58
 msgid "Reference"
 msgstr "Reference"
@@ -9281,7 +9316,7 @@ msgstr "Câu hỏi đăng ký"
 msgid "Reject all"
 msgstr "Từ chối tất cả"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:105
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:153
 msgid "Reject proof"
 msgstr "Reject proof"
 
@@ -9289,7 +9324,7 @@ msgstr "Reject proof"
 msgid "Rejected"
 msgstr "Rejected"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:81
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:129
 msgid "Rejection reason"
 msgstr "Rejection reason"
 
@@ -9365,6 +9400,14 @@ msgstr "Yêu cầu bởi"
 #: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:188
 msgid "Require Billing Address"
 msgstr "Yêu cầu địa chỉ thanh toán"
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:170
+msgid "Require customers to attach a receipt before paying offline. You can preview, approve, or reject it from the order page."
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/PaymentSettings/index.tsx:169
+msgid "Require payment proof for offline payments"
+msgstr ""
 
 #: src/components/common/QuestionsTable/index.tsx:118
 msgid "Required"
@@ -10120,6 +10163,10 @@ msgstr "đã chọn"
 #: src/components/routes/product-widget/OccurrenceSelector/index.tsx:136
 msgid "Selected"
 msgstr "Đã chọn"
+
+#: src/components/routes/product-widget/Payment/index.tsx:153
+msgid "Selected file"
+msgstr ""
 
 #: src/components/layouts/AuthLayout/index.tsx:42
 msgid "Sell out your event."
@@ -12122,7 +12169,7 @@ msgstr "Nhập để tìm kiếm..."
 msgid "Typography"
 msgstr "Kiểu chữ"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:34
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:38
 msgid "Unable to approve payment proof"
 msgstr "Unable to approve payment proof"
 
@@ -12147,7 +12194,7 @@ msgstr "Không thể tạo sản phẩm. Vui lòng kiểm tra thông tin của b
 msgid "Unable to create question. Please check the your details"
 msgstr "Không thể tạo câu hỏi. Vui lòng kiểm tra thông tin của bạn"
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:55
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:59
 msgid "Unable to download payment proof"
 msgstr "Unable to download payment proof"
 
@@ -12171,7 +12218,7 @@ msgstr "Không tải được thông tin người tham dự."
 msgid "Unable to load products for this date. Please try again."
 msgstr "Không tải được sản phẩm cho ngày này. Vui lòng thử lại."
 
-#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:43
+#: src/components/modals/ManageOrderModal/OrderPaymentProofReview.tsx:47
 msgid "Unable to reject payment proof"
 msgstr "Unable to reject payment proof"
 

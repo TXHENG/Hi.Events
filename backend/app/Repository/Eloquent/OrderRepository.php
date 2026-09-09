@@ -160,6 +160,16 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         return $this->findFirstByField('short_id', $orderShortId);
     }
 
+    public function findByShortIdForUpdate(string $orderShortId): ?OrderDomainObject
+    {
+        return $this->runQuery(fn () => $this->handleSingleResult(
+            $this->model
+                ->where('short_id', $orderShortId)
+                ->lockForUpdate()
+                ->first(),
+        ));
+    }
+
     public function getDomainObject(): string
     {
         return OrderDomainObject::class;

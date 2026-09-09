@@ -47,9 +47,37 @@ test.describe('offline orders', () => {
     await orders.chooseRowAction(order.buyerEmail, 'Manage order');
     const drawer = orders.detailsDrawer();
     await expect(drawer.getByText('bank-transfer-receipt.png')).toBeVisible();
+    await drawer.getByTestId('payment-proof-preview-button').click();
+    await expect(authedPage.getByRole('img', { name: 'bank-transfer-receipt.png' })).toBeVisible();
+    await authedPage.getByRole('button', { name: 'Close' }).click();
     await drawer.getByTestId('payment-proof-approve-button').click();
 
     await expect(row.getByText('Completed')).toBeVisible();
+  });
+
+  test('an organizer previews a PDF payment proof', async ({ authedPage, api, account, publicApi }) => {
+    const event = await createLiveEventWithPaidTicket(api, account.organizerId);
+    const order = await createAwaitingOfflineOrder(api, publicApi, event, { buyerEmail: uniqueEmail() });
+    await api.updateEventSettings(event.eventId, { allow_offline_payment_proof: true });
+
+    const submission = await publicApi.post(`public/events/${event.eventId}/order/${order.orderShortId}/payment-proofs`, {
+      multipart: {
+        proof: {
+          name: 'bank-transfer-receipt.pdf',
+          mimeType: 'application/pdf',
+          buffer: Buffer.from('%PDF-1.4\n1 0 obj\n<< /Type /Catalog >>\nendobj\ntrailer\n<< /Root 1 0 R >>\n%%EOF'),
+        },
+      },
+    });
+    expect(submission.ok()).toBeTruthy();
+
+    const orders = new OrderPage(authedPage);
+    await orders.goto(event.eventId);
+    await orders.chooseRowAction(order.buyerEmail, 'Manage order');
+    const drawer = orders.detailsDrawer();
+    await drawer.getByTestId('payment-proof-preview-button').click();
+
+    await expect(authedPage.locator('iframe[title="bank-transfer-receipt.pdf"]')).toBeVisible();
   });
 
   test('an organizer records a refund for a paid offline order', async ({ authedPage, api, account, publicApi }) => {

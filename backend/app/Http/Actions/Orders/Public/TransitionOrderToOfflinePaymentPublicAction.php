@@ -7,7 +7,7 @@ use HiEvents\Resources\Order\OrderResourcePublic;
 use HiEvents\Services\Application\Handlers\Order\DTO\TransitionOrderToOfflinePaymentPublicDTO;
 use HiEvents\Services\Application\Handlers\Order\TransitionOrderToOfflinePaymentHandler;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use HiEvents\Http\Request\Order\TransitionOrderToOfflinePaymentPublicRequest;
 
 class TransitionOrderToOfflinePaymentPublicAction extends BaseAction
 {
@@ -15,11 +15,14 @@ class TransitionOrderToOfflinePaymentPublicAction extends BaseAction
         private readonly TransitionOrderToOfflinePaymentHandler $initializeOrderOfflinePaymentPublicHandler,
     ) {}
 
-    public function __invoke(Request $request, int $eventId, string $orderShortId): JsonResponse
+    public function __invoke(TransitionOrderToOfflinePaymentPublicRequest $request, int $eventId, string $orderShortId): JsonResponse
     {
         $order = $this->initializeOrderOfflinePaymentPublicHandler->handle(
             TransitionOrderToOfflinePaymentPublicDTO::fromArray([
+                'eventId' => $eventId,
                 'orderShortId' => $orderShortId,
+                'proof' => $request->file('proof'),
+                'paymentReference' => $request->validated('payment_reference'),
             ]),
         );
 

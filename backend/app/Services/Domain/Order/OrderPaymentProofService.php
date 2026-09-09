@@ -47,7 +47,38 @@ class OrderPaymentProofService
      */
     public function submit(int $eventId, string $orderShortId, UploadedFile $file, ?string $paymentReference): OrderPaymentProofDomainObject
     {
-        $order = $this->getEligibleOrder($eventId, $orderShortId);
+        $storedProof = null;
+
+        try {
+            [$proof, $order] = $this->databaseManager->transaction(function () use ($eventId, $orderShortId, $file, $paymentReference, &$storedProof) {
+                $order = $this->getEligibleOrder($eventId, $orderShortId);
+                $storedProof = $this->storePendingProof($order, $eventId, $file, $paymentReference);
+
+                return [$storedProof, $order];
+            });
+        } catch (Throwable $e) {
+            if ($storedProof instanceof OrderPaymentProofDomainObject) {
+                $this->discardStoredProof($storedProof);
+            }
+
+            throw $e;
+        }
+
+        $this->notifySubmission($eventId, $order);
+
+        return $proof;
+    }
+
+    public function storePendingProof(
+        OrderDomainObject $order,
+        int $eventId,
+        UploadedFile $file,
+        ?string $paymentReference,
+    ): OrderPaymentProofDomainObject {
+        if ($this->paymentProofRepository->findPendingForOrder($order->getId()) !== null) {
+            throw new ResourceConflictException(__('A payment proof is already awaiting review'));
+        }
+
         $disk = $this->config->get('filesystems.private');
         $filename = Str::uuid().'.'.$file->guessExtension();
         $path = $this->filesystemManager->disk($disk)->putFileAs(
@@ -61,34 +92,34 @@ class OrderPaymentProofService
         }
 
         try {
-            $proof = $this->databaseManager->transaction(function () use ($order, $eventId, $disk, $path, $file, $paymentReference) {
-                if ($this->paymentProofRepository->findPendingForOrder($order->getId()) !== null) {
-                    throw new ResourceConflictException(__('A payment proof is already awaiting review'));
-                }
-
-                return $this->paymentProofRepository->create([
-                    'event_id' => $eventId,
-                    'order_id' => $order->getId(),
-                    'disk' => $disk,
-                    'path' => $path,
-                    'original_filename' => basename($file->getClientOriginalName()),
-                    'mime_type' => $file->getMimeType(),
-                    'size' => $file->getSize(),
-                    'payment_reference' => $paymentReference === null ? null : trim($paymentReference),
-                    'status' => OrderPaymentProofStatus::PENDING->value,
-                ]);
-            });
+            return $this->paymentProofRepository->create([
+                'event_id' => $eventId,
+                'order_id' => $order->getId(),
+                'disk' => $disk,
+                'path' => $path,
+                'original_filename' => basename($file->getClientOriginalName()),
+                'mime_type' => $file->getMimeType(),
+                'size' => $file->getSize(),
+                'payment_reference' => $paymentReference === null ? null : trim($paymentReference),
+                'status' => OrderPaymentProofStatus::PENDING->value,
+            ]);
         } catch (Throwable $e) {
             $this->filesystemManager->disk($disk)->delete($path);
             throw $e;
         }
+    }
 
+    public function discardStoredProof(OrderPaymentProofDomainObject $proof): void
+    {
+        $this->filesystemManager->disk($proof->getDisk())->delete($proof->getPath());
+    }
+
+    public function notifySubmission(int $eventId, OrderDomainObject $order): void
+    {
         $event = $this->getEventWithPaymentContext($eventId);
         $this->mailer
             ->to($event->getOrganizer()->getEmail())
             ->send(new OrderPaymentProofSubmittedMail($event, $order));
-
-        return $proof;
     }
 
     /** @return Collection<OrderPaymentProofDomainObject> */
@@ -177,7 +208,11 @@ class OrderPaymentProofService
 
     private function getEligibleOrder(int $eventId, string $orderShortId): OrderDomainObject
     {
-        $order = $this->getOrderForEvent($eventId, $orderShortId);
+        $order = $this->orderRepository->findByShortIdForUpdate($orderShortId);
+
+        if (! $order || $order->getEventId() !== $eventId) {
+            throw new ResourceNotFoundException(__('Order not found'));
+        }
         $settings = $this->eventSettingsRepository->findFirstWhere(['event_id' => $eventId]);
 
         if (! $settings instanceof EventSettingDomainObject || ! $settings->getAllowOfflinePaymentProof()) {

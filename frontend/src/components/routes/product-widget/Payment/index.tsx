@@ -6,7 +6,7 @@ import {CheckoutStepTitle} from "../../../layouts/Checkout/CheckoutStepTitle";
 import {StripePaymentMethod} from "./PaymentMethods/Stripe";
 import {OfflinePaymentMethod} from "./PaymentMethods/Offline";
 import {Event} from "../../../../types.ts";
-import {Button, Group, Text} from "@mantine/core";
+import {Alert, Button, FileInput, Group, Stack, Text, TextInput} from "@mantine/core";
 import {IconBuildingBank, IconLock, IconWallet} from "@tabler/icons-react";
 import {formatCurrency} from "../../../../utilites/currency.ts";
 import {t, Trans} from "@lingui/macro";
@@ -31,10 +31,29 @@ const Payment = () => {
     const [isPaymentLoading, setIsPaymentLoading] = useState(false);
     const [activePaymentMethod, setActivePaymentMethod] = useState<'STRIPE' | 'OFFLINE' | null>(null);
     const [submitHandler, setSubmitHandler] = useState<(() => Promise<void>) | null>(null);
+    const [paymentProof, setPaymentProof] = useState<File | null>(null);
+    const [paymentReference, setPaymentReference] = useState('');
     const transitionOrderToOfflinePaymentMutation = useTransitionOrderToOfflinePaymentPublic();
 
     const isStripeEnabled = event?.settings?.payment_providers?.includes('STRIPE');
     const isOfflineEnabled = event?.settings?.payment_providers?.includes('OFFLINE');
+    const isPaymentProofRequired = checkoutEvent?.settings?.allow_offline_payment_proof === true;
+    const paymentProofError = React.useMemo(() => {
+        if (!paymentProof) return null;
+
+        if (paymentProof.size > 10 * 1024 * 1024) {
+            return t`Payment receipt must be 10 MB or smaller`;
+        }
+
+        if (!['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'].includes(paymentProof.type)) {
+            return t`Payment receipt must be a JPG, PNG, or PDF`;
+        }
+
+        return null;
+    }, [paymentProof]);
+    const isOfflinePaymentDisabled = activePaymentMethod === 'OFFLINE'
+        && isPaymentProofRequired
+        && (!paymentProof || paymentProofError !== null);
 
     React.useEffect(() => {
         // Automatically set the first available payment method
@@ -63,22 +82,27 @@ const Payment = () => {
         if (activePaymentMethod === 'STRIPE') {
             handleParentSubmit();
         } else if (activePaymentMethod === 'OFFLINE') {
+            if (isOfflinePaymentDisabled) {
+                return;
+            }
+
             setIsPaymentLoading(true);
 
-            await transitionOrderToOfflinePaymentMutation.mutateAsync({
-                eventId,
-                orderShortId
-            }, {
-                onSuccess: () => {
-                    const totalCents = Math.round((order?.total_gross || 0) * 100);
-                    trackEvent(AnalyticsEvents.PURCHASE_COMPLETED_OFFLINE, { value: totalCents });
-                    navigate(`/checkout/${eventId}/${orderShortId}/summary`);
-                },
-                onError: (error: any) => {
-                    setIsPaymentLoading(false);
-                    showError(error.response?.data?.message || t`Offline payment failed. Please try again or contact the event organizer.`);
-                }
-            });
+            try {
+                await transitionOrderToOfflinePaymentMutation.mutateAsync({
+                    eventId,
+                    orderShortId,
+                    proof: paymentProof,
+                    paymentReference,
+                });
+                const totalCents = Math.round((order?.total_gross || 0) * 100);
+                trackEvent(AnalyticsEvents.PURCHASE_COMPLETED_OFFLINE, { value: totalCents });
+                navigate(`/checkout/${eventId}/${orderShortId}/summary`);
+            } catch (error: any) {
+                showError(error.response?.data?.message || t`Offline payment failed. Please try again or contact the event organizer.`);
+            } finally {
+                setIsPaymentLoading(false);
+            }
         }
     };
 
@@ -109,6 +133,33 @@ const Payment = () => {
                 {isOfflineEnabled && (
                     <div style={{display: activePaymentMethod === 'OFFLINE' ? 'block' : 'none'}}>
                         <OfflinePaymentMethod event={checkoutEvent as Event}/>
+                        {isPaymentProofRequired && (
+                            <Card>
+                                <Stack gap="sm">
+                                    <Text fw={600}>{t`Payment proof required`}</Text>
+                                    <Alert color="blue">
+                                        {t`Attach your bank-transfer receipt or payment confirmation before paying. The organizer will review it before marking your order as paid.`}
+                                    </Alert>
+                                    <FileInput
+                                        label={t`Payment receipt`}
+                                        description={t`JPG, PNG, or PDF up to 10 MB`}
+                                        placeholder={t`Choose a file`}
+                                        accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"
+                                        value={paymentProof}
+                                        onChange={setPaymentProof}
+                                        error={paymentProofError}
+                                        clearable
+                                    />
+                                    {paymentProof && <Text size="sm">{t`Selected file`}: {paymentProof.name}</Text>}
+                                    <TextInput
+                                        label={t`Payment reference`}
+                                        description={t`Optional bank transfer or transaction reference`}
+                                        value={paymentReference}
+                                        onChange={(event) => setPaymentReference(event.currentTarget.value)}
+                                    />
+                                </Stack>
+                            </Card>
+                        )}
                     </div>
                 )}
 
@@ -142,6 +193,7 @@ const Payment = () => {
                     <Button
                         className={classes.continueButton}
                         loading={isLoading || isPaymentLoading}
+                        disabled={isOfflinePaymentDisabled || isPaymentLoading}
                         onClick={handleSubmit}
                         data-testid={activePaymentMethod === 'OFFLINE' ? 'offline-payment-button' : undefined}
                     >

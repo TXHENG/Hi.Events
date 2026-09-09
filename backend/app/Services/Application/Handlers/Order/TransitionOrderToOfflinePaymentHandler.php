@@ -16,12 +16,15 @@ use HiEvents\Repository\Interfaces\EventSettingsRepositoryInterface;
 use HiEvents\Repository\Interfaces\OrderRepositoryInterface;
 use HiEvents\Services\Application\Handlers\Order\DTO\TransitionOrderToOfflinePaymentPublicDTO;
 use HiEvents\Services\Domain\Order\OccurrenceStatusValidator;
+use HiEvents\Services\Domain\Order\OrderPaymentProofService;
 use HiEvents\Services\Domain\Product\ProductQuantityUpdateService;
 use HiEvents\Services\Infrastructure\DomainEvents\DomainEventDispatcherService;
 use HiEvents\Services\Infrastructure\DomainEvents\Enums\DomainEventType;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\OrderEvent;
 use HiEvents\Services\Infrastructure\Session\CheckoutSessionManagementService;
 use Illuminate\Database\DatabaseManager;
+use Illuminate\Validation\ValidationException;
+use Throwable;
 
 class TransitionOrderToOfflinePaymentHandler
 {
@@ -33,59 +36,89 @@ class TransitionOrderToOfflinePaymentHandler
         private readonly OccurrenceStatusValidator $occurrenceStatusValidator,
         private readonly DomainEventDispatcherService $domainEventDispatcherService,
         private readonly CheckoutSessionManagementService $sessionManagementService,
+        private readonly OrderPaymentProofService $paymentProofService,
     ) {}
 
     public function handle(TransitionOrderToOfflinePaymentPublicDTO $dto): OrderDomainObject
     {
-        return $this->databaseManager->transaction(function () use ($dto) {
-            /** @var OrderDomainObjectAbstract $order */
-            $order = $this->orderRepository
-                ->loadRelation(OrderItemDomainObject::class)
-                ->findByShortId($dto->orderShortId);
+        $storedProof = null;
+        $eventSettings = null;
 
-            if ($order === null) {
-                throw new ResourceConflictException(__('Order not found'));
+        try {
+            $order = $this->databaseManager->transaction(function () use ($dto, &$storedProof, &$eventSettings) {
+                /** @var OrderDomainObjectAbstract $order */
+                $order = $this->orderRepository
+                    ->loadRelation(OrderItemDomainObject::class)
+                    ->findByShortIdForUpdate($dto->orderShortId);
+
+                if ($order === null) {
+                    throw new ResourceConflictException(__('Order not found'));
+                }
+
+                if ($order->getEventId() !== $dto->eventId) {
+                    throw new ResourceConflictException(__('Order not found'));
+                }
+
+                if ($order->getSessionId() === null
+                    || ! $this->sessionManagementService->verifySession($order->getSessionId())) {
+                    throw new UnauthorizedException(
+                        __('Sorry, we could not verify your session. Please restart your order.')
+                    );
+                }
+
+                $eventSettings = $this->eventSettingsRepository->findFirstWhere([
+                    'event_id' => $order->getEventId(),
+                ]);
+
+                $this->validateOfflinePayment($order, $eventSettings, $dto);
+
+                $this->occurrenceStatusValidator->assertOrderOccurrencesArePurchasable($order);
+
+                if ($dto->proof !== null) {
+                    $storedProof = $this->paymentProofService->storePendingProof(
+                        order: $order,
+                        eventId: $order->getEventId(),
+                        file: $dto->proof,
+                        paymentReference: $dto->paymentReference,
+                    );
+                }
+
+                $this->updateOrderStatuses($order->getId());
+
+                $this->productQuantityUpdateService->updateQuantitiesFromOrder($order);
+
+                $order = $this->orderRepository
+                    ->loadRelation(OrderItemDomainObject::class)
+                    ->findById($order->getId());
+
+                return $order;
+            });
+        } catch (Throwable $e) {
+            if ($storedProof !== null) {
+                $this->paymentProofService->discardStoredProof($storedProof);
             }
 
-            if ($order->getSessionId() === null
-                || ! $this->sessionManagementService->verifySession($order->getSessionId())) {
-                throw new UnauthorizedException(
-                    __('Sorry, we could not verify your session. Please restart your order.')
-                );
-            }
+            throw $e;
+        }
 
-            /** @var EventSettingDomainObject $eventSettings */
-            $eventSettings = $this->eventSettingsRepository->findFirstWhere([
-                'event_id' => $order->getEventId(),
-            ]);
+        event(new OrderStatusChangedEvent(
+            order: $order,
+            sendEmails: true,
+            createInvoice: $eventSettings->getEnableInvoicing(),
+        ));
 
-            $this->validateOfflinePayment($order, $eventSettings);
+        $this->domainEventDispatcherService->dispatch(
+            new OrderEvent(
+                type: DomainEventType::ORDER_CREATED,
+                orderId: $order->getId(),
+            ),
+        );
 
-            $this->occurrenceStatusValidator->assertOrderOccurrencesArePurchasable($order);
+        if ($storedProof !== null) {
+            $this->paymentProofService->notifySubmission($order->getEventId(), $order);
+        }
 
-            $this->updateOrderStatuses($order->getId());
-
-            $this->productQuantityUpdateService->updateQuantitiesFromOrder($order);
-
-            $order = $this->orderRepository
-                ->loadRelation(OrderItemDomainObject::class)
-                ->findById($order->getId());
-
-            event(new OrderStatusChangedEvent(
-                order: $order,
-                sendEmails: true,
-                createInvoice: $eventSettings->getEnableInvoicing(),
-            ));
-
-            $this->domainEventDispatcherService->dispatch(
-                new OrderEvent(
-                    type: DomainEventType::ORDER_CREATED,
-                    orderId: $order->getId(),
-                ),
-            );
-
-            return $order;
-        });
+        return $order;
     }
 
     private function updateOrderStatuses(int $orderId): void
@@ -104,6 +137,7 @@ class TransitionOrderToOfflinePaymentHandler
     public function validateOfflinePayment(
         OrderDomainObject $order,
         EventSettingDomainObject $settings,
+        TransitionOrderToOfflinePaymentPublicDTO $dto,
     ): void {
         if (! $order->isOrderReserved()) {
             throw new ResourceConflictException(__('Order is not in the correct status to transition to offline payment'));
@@ -115,6 +149,16 @@ class TransitionOrderToOfflinePaymentHandler
 
         if (collect($settings->getPaymentProviders())->contains(PaymentProviders::OFFLINE->value) === false) {
             throw new UnauthorizedException(__('Offline payments are not enabled for this event'));
+        }
+
+        if ($settings->getAllowOfflinePaymentProof() && $dto->proof === null) {
+            throw ValidationException::withMessages([
+                'proof' => [__('A payment proof is required before paying offline')],
+            ]);
+        }
+
+        if (! $settings->getAllowOfflinePaymentProof() && $dto->proof !== null) {
+            throw new ResourceConflictException(__('Payment proof uploads are not enabled for this event'));
         }
     }
 }

@@ -182,8 +182,22 @@ export const orderClientPublic = {
         return response.data;
     },
 
-    transitionToOfflinePayment: async (eventId: IdParam, orderShortId: IdParam) => {
-        const response = await publicApi.post<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}/await-offline-payment`);
+    transitionToOfflinePayment: async (
+        eventId: IdParam,
+        orderShortId: IdParam,
+        proof?: File | null,
+        paymentReference?: string,
+    ) => {
+        const formData = new FormData();
+
+        if (proof) formData.append('proof', proof);
+        if (paymentReference) formData.append('payment_reference', paymentReference);
+
+        const response = await publicApi.post<GenericDataResponse<Order>>(
+            `events/${eventId}/order/${orderShortId}/await-offline-payment`,
+            formData,
+            {headers: {'Content-Type': 'multipart/form-data'}},
+        );
         return response.data;
     },
 
