@@ -11,6 +11,7 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 BRANCH="${BRANCH:-develop}"
 HEALTH_URL="${HEALTH_URL:-http://localhost:8123}"
 COMPOSE_FILE="${COMPOSE_FILE:-${SCRIPT_DIR}/docker-compose.rpi.yml}"
+COMPOSE_PROJECT_NAME="${COMPOSE_PROJECT_NAME:-hi-events}"
 
 if [[ ! -f "${COMPOSE_FILE}" ]]; then
     COMPOSE_FILE="${SCRIPT_DIR}/docker-compose.yml"
@@ -22,10 +23,10 @@ if [[ ! -f "${COMPOSE_FILE}" ]]; then
 fi
 
 # Compose generates a build image as <project>-all-in-one when no explicit
-# `image:` field exists. Use that same tag so `up --no-build` starts the image
-# created above. IMAGE_TAG remains available as an override for custom setups.
-COMPOSE_PROJECT_NAME="$(docker compose --file "${COMPOSE_FILE}" config 2>/dev/null | awk '/^name:/ { print $2; exit }')"
-IMAGE_TAG="${IMAGE_TAG:-${COMPOSE_PROJECT_NAME:-all-in-one}-all-in-one:latest}"
+# `image:` field exists. Use the live stack's project name so this deployment
+# replaces the running Hi.Events container instead of creating a second stack.
+# Both names may be overridden for custom installations.
+IMAGE_TAG="${IMAGE_TAG:-${COMPOSE_PROJECT_NAME}-all-in-one:latest}"
 
 echo "Updating ${BRANCH}..."
 git -C "${PROJECT_ROOT}" pull --ff-only origin "${BRANCH}"
@@ -39,7 +40,10 @@ docker build \
     "${PROJECT_ROOT}"
 
 echo "Starting the updated service..."
-docker compose --file "${COMPOSE_FILE}" up --detach --no-build
+docker compose \
+    --project-name "${COMPOSE_PROJECT_NAME}" \
+    --file "${COMPOSE_FILE}" \
+    up --detach --no-build
 
 echo "Waiting for ${HEALTH_URL}..."
 for attempt in {1..30}; do
@@ -52,5 +56,5 @@ for attempt in {1..30}; do
 done
 
 echo "The container started, but ${HEALTH_URL} did not become healthy in time." >&2
-docker compose --file "${COMPOSE_FILE}" ps >&2
+    docker compose --project-name "${COMPOSE_PROJECT_NAME}" --file "${COMPOSE_FILE}" ps >&2
 exit 1
